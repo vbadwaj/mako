@@ -7,6 +7,7 @@
 #include <pthread.h>
 
 #include <map>
+#include <atomic>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -114,7 +115,8 @@ public:
   transaction_base(uint64_t flags)
     : state(TXN_EMBRYO),
       reason(ABORT_REASON_NONE),
-      flags(flags) {}
+      flags(flags),
+      validated_in_batch_(false) {}
 
   transaction_base(const transaction_base &) = delete;
   transaction_base(transaction_base &&) = delete;
@@ -141,6 +143,16 @@ protected:
   }
 
 public:
+
+  inline void mark_validated_in_batch(bool value)
+  {
+    validated_in_batch_.store(value, std::memory_order_relaxed);
+  }
+
+  inline bool was_validated_in_batch() const
+  {
+    return validated_in_batch_.load(std::memory_order_relaxed);
+  }
 
   // only fires during invariant checking
   inline void
@@ -346,10 +358,14 @@ protected:
   CLASS_STATIC_COUNTER_DECL(scopedperf::tsc_ctr, g_txn_commit_probe4, g_txn_commit_probe4_cg);
   CLASS_STATIC_COUNTER_DECL(scopedperf::tsc_ctr, g_txn_commit_probe5, g_txn_commit_probe5_cg);
   CLASS_STATIC_COUNTER_DECL(scopedperf::tsc_ctr, g_txn_commit_probe6, g_txn_commit_probe6_cg);
+  // Enhanced probes for baseline performance profiling
+  CLASS_STATIC_COUNTER_DECL(scopedperf::tsc_ctr, g_txn_read_set_validation, g_txn_read_set_validation_cg);
+  CLASS_STATIC_COUNTER_DECL(scopedperf::tsc_ctr, g_txn_absent_set_validation, g_txn_absent_set_validation_cg);
 
   txn_state state;
   abort_reason reason;
   const uint64_t flags;
+  std::atomic<bool> validated_in_batch_;
 };
 
 

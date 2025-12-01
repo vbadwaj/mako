@@ -1,0 +1,28 @@
+{
+  "name": "batch_64",
+  "batch_validation_enabled": 1,
+  "batch_size": 64,
+  "throughput": {
+    "txns_per_second": 360469,
+    "committed": 0,
+    "abort_rate": 72.3481,
+    "avg_latency_ms": 0.0215791
+  },
+  "performance_counters": {
+    "total_commit_time_us": 0,
+    "validation_time_us": 0,
+    "read_validation_time_us": 0,
+    "absent_validation_time_us": 0,
+    "install_time_us": 0
+  },
+  "batch_validation": {
+    "batch_validations": 0,
+    "batch_validated_txns": 0,
+    "batch_aborted_txns": 0,
+    "avg_batch_size": 0,
+    "avg_batch_validation_time_us": 0,
+    "avg_mutex_wait_us": 0,
+    "avg_batch_wait_us": 0,
+    "avg_collection_time_us": 0
+  }
+}

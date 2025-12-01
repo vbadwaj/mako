@@ -1,245 +1,233 @@
-20251019-00:40.40-968011(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:78] 2025-11-19 00:40:40.968 | PWD : /home/ubuntu/mako
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:273] 2025-11-19 00:40:40.968 | starting process 81678
-I [/home/ubuntu/mako/src/deptran/config.cc:290] 2025-11-19 00:40:40.968 | LoadYML: /home/ubuntu/mako/examples/../config/1leader_2followers/paxos6_shardidx0.yml
-I [/home/ubuntu/mako/src/deptran/config.cc:290] 2025-11-19 00:40:40.968 | LoadYML: /home/ubuntu/mako/examples/../config/occ_paxos.yml
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:282] 2025-11-19 00:40:40.968 | server_infos, number of sites: 6, proc_name: localhost
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:40.974 | parition id of each Paxos group is 5, site-name: s106, site-id: 20
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:40.980 | parition id of each Paxos group is 4, site-name: s105, site-id: 16
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:40.986 | parition id of each Paxos group is 3, site-name: s104, site-id: 12
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:40.991 | parition id of each Paxos group is 2, site-name: s103, site-id: 8
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:40.997 | parition id of each Paxos group is 1, site-name: s102, site-id: 4
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-19 00:40:41.002 | parition id of each Paxos group is 0, site-name: s101, site-id: 0
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:294] 2025-11-19 00:40:41.002 | running machine-id: 0
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.003 | launching site: 0, bind address 0.0.0.0:7001
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.003 | [service]loc_id: 0, name: s101, proc: localhost, id: 0
-starting server at 0.0.0.0:7001
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.003 | Server s101 ready at 0.0.0.0:7001
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.003 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.003 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.003 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.003 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.003 | launching site: 4, bind address 0.0.0.0:7002
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.003 | [service]loc_id: 0, name: s102, proc: localhost, id: 4
-starting server at 0.0.0.0:7002
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.003 | Server s102 ready at 0.0.0.0:7002
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.003 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.003 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.003 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.003 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:103] 2025-11-19 00:40:41.003 | waiting for server setup threads.
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.004 | launching site: 8, bind address 0.0.0.0:7003
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.004 | [service]loc_id: 0, name: s103, proc: localhost, id: 8
+20251025-23:56.57-540871(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:78] 2025-11-25 23:56:57.541 | PWD : /home/ubuntu/mako
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:273] 2025-11-25 23:56:57.541 | starting process 30276
+I [/home/ubuntu/mako/src/deptran/config.cc:290] 2025-11-25 23:56:57.541 | LoadYML: /home/ubuntu/mako/examples/../config/1leader_2followers/paxos6_shardidx0.yml
+I [/home/ubuntu/mako/src/deptran/config.cc:290] 2025-11-25 23:56:57.541 | LoadYML: /home/ubuntu/mako/examples/../config/occ_paxos.yml
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:282] 2025-11-25 23:56:57.541 | server_infos, number of sites: 6, proc_name: localhost
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.551 | parition id of each Paxos group is 5, site-name: s106, site-id: 20
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.561 | parition id of each Paxos group is 4, site-name: s105, site-id: 16
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.572 | parition id of each Paxos group is 3, site-name: s104, site-id: 12
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.582 | parition id of each Paxos group is 2, site-name: s103, site-id: 8
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.592 | parition id of each Paxos group is 1, site-name: s102, site-id: 4
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:288] 2025-11-25 23:56:57.602 | parition id of each Paxos group is 0, site-name: s101, site-id: 0
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:294] 2025-11-25 23:56:57.602 | running machine-id: 0
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.602 | launching site: 0, bind address 0.0.0.0:7001
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.602 | launching site: 4, bind address 0.0.0.0:7002
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.602 | launching site: 8, bind address 0.0.0.0:7003
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.603 | launching site: c, bind address 0.0.0.0:7004
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.603 | [service]loc_id: 0, name: s102, proc: localhost, id: 4
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.603 | [service]loc_id: 0, name: s101, proc: localhost, id: 0
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.603 | launching site: 10, bind address 0.0.0.0:7005
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.603 | [service]loc_id: 0, name: s103, proc: localhost, id: 8
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:103] 2025-11-25 23:56:57.603 | waiting for server setup threads.
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-25 23:56:57.603 | launching site: 14, bind address 0.0.0.0:7006
 starting server at 0.0.0.0:7003
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.004 | Server s103 ready at 0.0.0.0:7003
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.004 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.004 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.004 | launching site: c, bind address 0.0.0.0:7004
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.004 | [service]loc_id: 0, name: s104, proc: localhost, id: 12
-starting server at 0.0.0.0:7004
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.004 | Server s104 ready at 0.0.0.0:7004
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.004 | launching site: 10, bind address 0.0.0.0:7005
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.004 | [service]loc_id: 0, name: s105, proc: localhost, id: 16
-starting server at 0.0.0.0:7005
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.004 | Server s105 ready at 0.0.0.0:7005
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.004 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.004 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:88] 2025-11-19 00:40:41.004 | launching site: 14, bind address 0.0.0.0:7006
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-19 00:40:41.004 | [service]loc_id: 0, name: s106, proc: localhost, id: 20
+starting server at 0.0.0.0:7001
+starting server at 0.0.0.0:7002
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.603 | Server s103 ready at 0.0.0.0:7003
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.603 | Server s101 ready at 0.0.0.0:7001
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.603 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.603 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.603 | Server s102 ready at 0.0.0.0:7002
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.603 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7101 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7101 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7101 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.603 | [service]loc_id: 0, name: s106, proc: localhost, id: 20
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.603 | rrr::Client: connect(127.0.0.1:7101): Connection refused
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.603 | rrr::Client: connect(127.0.0.1:7101): Connection refused
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.603 | rrr::Client: connect(127.0.0.1:7101): Connection refused
 starting server at 0.0.0.0:7006
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-19 00:40:41.004 | Server s106 ready at 0.0.0.0:7006
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.004 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.004 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.004 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-19 00:40:41.005 | setup paxos communicator
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.005 | connect to site: 127.0.0.1:7001 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:41.005 | connect to site: 127.0.0.1:7101 (attempt 0)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:41.005 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.003 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.003 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.003 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.003 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.004 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.004 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.004 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.004 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.005 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.005 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:42.005 | connect to site: 127.0.0.1:7101 (attempt 1)
-E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-19 00:40:42.005 | rrr::Client: connect(127.0.0.1:7101): Connection refused
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.003 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.004 | site 0 launched!
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.004 | site 4 launched!
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.004 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.005 | site 8 launched!
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.005 | site 16 launched!
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7101 (attempt 2)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.005 | connect to site: 127.0.0.1:7201 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7301 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7002 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7102 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7202 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7302 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7003 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7103 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.009 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7203 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.010 | site 12 launched!
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7303 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7004 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7104 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7204 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7304 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7005 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7105 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7205 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7305 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7006 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7106 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7206 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-19 00:40:43.010 | connect to site: 127.0.0.1:7306 (attempt 0)
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-19 00:40:43.011 | site 20 launched!
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:107] 2025-11-19 00:40:43.011 | done waiting for server setup threads.
-I [/home/ubDisk persistence disabled by DISABLE_DISK flag
-untu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s101 on 0.0.0.0:17001
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s102 on 0.0.0.0:17002
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s103 on 0.0.0.0:17003
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s104 on 0.0.0.0:17004
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s105 on 0.0.0.0:17005
-I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-19 00:40:43.011 | heartbeat setup for s106 on 0.0.0.0:17006
-I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:114] 2025-11-19 00:40:43.011 | server workers' communicators setup
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.603 | Server s106 ready at 0.0.0.0:7006
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.603 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.603 | connect to site: 127.0.0.1:7101 (attempt 0)
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.603 | rrr::Client: connect(127.0.0.1:7101): Connection refused
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.604 | [service]loc_id: 0, name: s104, proc: localhost, id: 12
+starting server at 0.0.0.0:7004
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.604 | Server s104 ready at 0.0.0.0:7004
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.604 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.604 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.604 | connect to site: 127.0.0.1:7101 (attempt 0)
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.604 | rrr::Client: connect(127.0.0.1:7101): Connection refused
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:192] 2025-11-25 23:56:57.604 | [service]loc_id: 0, name: s105, proc: localhost, id: 16
+starting server at 0.0.0.0:7005
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:215] 2025-11-25 23:56:57.604 | Server s105 ready at 0.0.0.0:7005
+I [/home/ubuntu/mako/src/deptran/communicator.cc:14] 2025-11-25 23:56:57.604 | setup paxos communicator
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.604 | connect to site: 127.0.0.1:7001 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:57.604 | connect to site: 127.0.0.1:7101 (attempt 0)
+E [/home/ubuntu/mako/src/rrr/rpc/client.cpp:179] 2025-11-25 23:56:57.604 | rrr::Client: connect(127.0.0.1:7101): Connection refused
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.603 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7101 (attempt 1)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7201 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7301 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7002 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7102 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7202 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7302 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.605 | site 4 launched!
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.605 | site 0 launched!
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7003 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7103 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7203 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7303 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7004 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7104 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.604 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7204 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7304 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7005 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7105 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | coDisk persistence disabled by DISABLE_DISK flag
+nnect to site: 127.0.0.1:7205 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7305 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.605 | site 12 launched!
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7006 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.605 | connect to site: 127.0.0.1:7106 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.605 | site 8 launched!
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.612 | site 20 launched!
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.612 | connect to site: 127.0.0.1:7206 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/communicator.cc:174] 2025-11-25 23:56:58.612 | connect to site: 127.0.0.1:7306 (attempt 0)
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:100] 2025-11-25 23:56:58.612 | site 16 launched!
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:107] 2025-11-25 23:56:58.612 | done waiting for server setup threads.
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.612 | heartbeat setup for s101 on 0.0.0.0:17001
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.613 | heartbeat setup for s102 on 0.0.0.0:17002
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.613 | heartbeat setup for s103 on 0.0.0.0:17003
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.613 | heartbeat setup for s104 on 0.0.0.0:17004
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.613 | heartbeat setup for s105 on 0.0.0.0:17005
+I [/home/ubuntu/mako/src/deptran/paxos_worker.cc:249] 2025-11-25 23:56:58.613 | heartbeat setup for s106 on 0.0.0.0:17006
+I [/home/ubuntu/mako/src/deptran/paxos_main_helper.cc:114] 2025-11-25 23:56:58.613 | server workers' communicators setup
 === Mako Transaction Tests  ===
 allocator::Initialize()
   hugepgsize: 2097152
   use MADV_WILLNEED: 1
-  mmap() region [0x770a7f800000, 0x770ac0200000)
-cpu0 owns [0x770a7f800000, 0x770a8a400000)
-cpu1 owns [0x770a8a400000, 0x770a95000000)
-cpu2 owns [0x770a95000000, 0x770a9fc00000)
-cpu3 owns [0x770a9fc00000, 0x770aaa800000)
-cpu4 owns [0x770aaa800000, 0x770ab5400000)
-cpu5 owns [0x770ab5400000, 0x770ac0000000)
+  mmap() region [0x7c93e2600000, 0x7c9423000000)
+cpu0 owns [0x7c93e2600000, 0x7c93ed200000)
+cpu1 owns [0x7c93ed200000, 0x7c93f7e00000)
+cpu2 owns [0x7c93f7e00000, 0x7c9402a00000)
+cpu3 owns [0x7c9402a00000, 0x7c940d600000)
+cpu4 owns [0x7c940d600000, 0x7c9418200000)
+cpu5 owns [0x7c9418200000, 0x7c9422e00000)
 Database Benchmark:
-  pid: 81678
+  pid: 30276
 settings:
-  num-cpus    : 2
+  num-cpus    : 8
   num-threads : 6
   shardIndex  : 0
   paxos_proc_name  : localhost
@@ -251,148 +239,104 @@ settings:
 system properties:
   tuple_prefetch          : no
   btree_node_prefetch     : yes
-20251019-00:40.46-12642(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.01-614775(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.01-614833(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
 [TRANSPORT] Using default: rrr
-20251019-00:40.46-12851(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.46-12913(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31011 (listening on 0.0.0.0:31011)
-20251019-00:40.46-12924(us) 81678 [TRANSPORT] Using default: rrr
-* FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31011
-20251019-00:40.46-12941(us) 81678 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
-20251019-00:40.46-13040(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31012 (listening on 0.0.0.0:31012)
-20251019-00:40.46-13052(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31012
-20251019-00:40.46-13059(us) 81678 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+[TRANSPORT] Using default: rrr
+20251025-23:57.01-614986(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31011 (listening on 0.0.0.0:31011)
+20251025-23:57.01-615014(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31011
+20251025-23:57.01-615029(us) 30276 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+20251025-23:57.01-615060(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31012 (listening on 0.0.0.0:31012)
+20251025-23:57.01-615087(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31012
+20251025-23:57.01-615103(us) 30276 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
 new table is createded with name: customer_0, table-id: 1, on shard-server id:0
-20251019-00:40.51-13750(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-13939(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-[Worker 0] Starting on thread 130886938900032
+20251025-23:57.06-616025(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616125(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616194(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616250(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616287(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616396(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616450(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+[Worker 0] Starting on thread 136974543353408
+[Worker 1] Starting on thread 136974534960704
+[Worker 2] Starting on thread 136974520284736
+[Worker 3] Starting on thread 136974505604672
+[Worker 4] Starting on thread 136974490924608
+[Worker 5] Starting on thread 136974482531904
 [TRANSPORT] Using default: rrr
-20251019-00:40.51-14133(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31000 (listening on 0.0.0.0:31000)
-20251019-00:40.51-14142(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31000
-20251019-00:40.51-14255(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-15997(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-16073(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-16143(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-16190(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format[Worker 1] Starting on thread 130886930507328
-[Worker 2] Starting on thread 130886922114624
+20251025-23:57.06-616509(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
 [TRANSPORT] Using default: rrr
+20251025-23:57.06-616604(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616644(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31000 (listening on 0.0.0.0:31000)
+20251025-23:57.06-616678(us) 30276 * FastTransport   (fasttransport.cc:116): [TRANSPORT] Using default: rrr
+FastTransport initialized with rrr/rpc backend on 127.0.0.1:31000
+20251025-23:57.06-616717(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31001 (listening on 0.0.0.0:31001)
+20251025-23:57.06-616755(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31001
+20251025-23:57.06-616804(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31004 (listening on 0.0.0.0:31004)
+20251025-23:57.06-616835(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31004
+20251025-23:57.06-616861(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616933(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-616972(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-617012(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+[TRANSPORT] Using default: rrr
+20251025-23:57.06-617061(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+[TRANSPORT] Using default: rrr
+20251025-23:57.06-617131(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+[TRANSPORT] Using default: rrr
+20251025-23:57.06-617190(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31005 (listening on 0.0.0.0:31005)
+20251025-23:57.06-617221(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31005
+20251025-23:57.06-617259(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31003 (listening on 0.0.0.0:31003)
+20251025-23:57.06-617281(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31003
+20251025-23:57.06-617365(us) 30276 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31002 (listening on 0.0.0.0:31002)
+20251025-23:57.06-617391(us) 30276 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31002
+20251025-23:57.06-617429(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-617482(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+20251025-23:57.06-617633(us) 30276 * ParseOldFormat  (configuration.cc:66): Using old configuration format
 
-[TRANSPORT] Using default: rrr
-20251019-00:40.51-16276(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31002 (listening on 0.0.0.0:31002)
-20251019-00:40.51-16284(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31002
-20251019-00:40.51-16304(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31001 (listening on 0.0.0.0:31001)
-20251019-00:40.51-16311(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31001
-20251019-00:40.51-16378(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-16405(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-17876(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-18003(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-[Worker 3] Starting on thread 130886913721920
-[TRANSPORT] Using default: rrr
-20251019-00:40.51-18121(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31003 (listening on 0.0.0.0:31003)
-20251019-00:40.51-18132(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31003
-20251019-00:40.51-18224(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-19882(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-20008(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-[Worker 4] Starting on thread 130886905329216
-[TRANSPORT] Using default: rrr
-20251019-00:40.51-20120(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31004 (listening on 0.0.0.0:31004)
-20251019-00:40.51-20132(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31004
-20251019-00:40.51-20235(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-21869(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-20251019-00:40.51-21993(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
-[Worker 5] Starting on thread 130886896936512
-[TRANSPORT] Using default: rrr
-20251019-00:40.51-22097(us) 81678 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31005 (listening on 0.0.0.0:31005)
-20251019-00:40.51-22104(us) 81678 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31005
-20251019-00:40.51-22189(us) 81678 * ParseOldFormat  (configuration.cc:66): Using old configuration format
+--- Testing Basic Transactions Thread:136974505604672 ---
 
---- Testing Basic Transactions Thread:130886938900032 ---
-existing table is createded with name: customer_0, table-id: 
---- Testing Basic Transactions Thread:130886922114624 ---
-1, on shard-server id:0
-existing table is createded with name: 
---- Testing Basic Transactions Thread:130886913721920 ---
+--- Testing Basic Transactions Thread:136974482531904 ---
+
+--- Testing Basic Transactions Thread:136974543353408 ---
+
+--- Testing Basic Transactions Thread:136974534960704 ---
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:existing table is createded with name: 0customer_0, table-id: 1
+, on shard-server id:existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+existing table is createded with name: 0customer_0, table-id: 1, on shard-server id:0
+
+
+--- Testing Basic Transactions Thread:136974520284736 ---
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 
---- Testing Basic Transactions Thread:130886905329216 ---
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-
---- Testing Basic Transactions Thread:130886930507328 ---
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-customer_0, table-id: 1, on shard-server id:0
-
---- Testing Basic Transactions Thread:130886896936512 ---
+--- Testing Basic Transactions Thread:136974490924608 ---
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [[32mPASS[0m] Write 5 records
+[[32mPASS[0m] Read and verify 5 records
+Worker completed
+
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974505604672 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 0 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 1 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 2 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 3 COMMITTED
 [[32mPASS[0m] Write 5 records
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 4 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 5 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 6 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 7 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 8 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 9 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
 [[32mPASS[0m] Read and verify 5 records
-Worker completed
 
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886930507328 ===
-existing table is createded with name: customer_0, table-id: [[32mPASS[0m] Write 5 records
-[[32mPASS[0m] Read and verify 5 records
-Worker completed
-
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886938900032 ===
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974505604672 ===
+existing table is createded with name: customer_0Worker completed, table-id: 1, on shard-server id:
+0
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974482531904 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 0 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 1 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 2 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 3 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 4 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 5 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 6 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 7 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 8 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 9 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] SUMMARY: 10 commits, 0 aborts
-1, on shard-server id:0
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 0 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 1 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 2 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 3 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 4 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 5 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 6 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 7 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 8 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 9 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
 
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886930507328 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_250 txn 0 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_251 txn 1 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_252 txn 2 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_253 txn 3 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_254 txn 4 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_250 txn 5 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_251 txn 6 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_252 txn 7 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_253 txn 8 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_254 txn 9 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
-
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886930507328 ===
-
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886930507328 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 0 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 1 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 2 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 3 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 4 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 5 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 6 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 7 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 8 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 9 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
-[Worker 1] Completed
-[[32mPASS[0m] Read and verify 5 records
-Worker completed
-
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886896936512 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_750 txn 0 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 500] txn 0 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 500] txn 1 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 500] txn 2 COMMITTED
@@ -405,60 +349,87 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_SINGLE_KEY] [Shard 0 Worker 500] txn 9 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 500] SUMMARY: 10 commits, 0 aborts
 
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886896936512 ===
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974482531904 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1250 txn 0 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_751 txn 1 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1251 txn 1 COMMITTED
+[[32mPASS[0m] Write 5 records
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_752 txn 2 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_753 txn 3 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_754 txn 4 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_750 txn 5 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_751 txn 6 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_752 txn 7 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_753 txn 8 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_754 txn 9 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
+
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974505604672 ===
+
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974505604672 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 0 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 1 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 2 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 3 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 4 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 5 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 6 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 7 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 8 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 9 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
+[Worker 3] Completed
+[[32mPASS[0m] Read and verify 5 records
+Worker completed
+
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974490924608 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1252 txn 2 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 0 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 1 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 2 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1253 txn 3 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 3 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 4 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1254 txn 4 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 5 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 6 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1250 txn 5 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 7 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1251 txn 6 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 8 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1252 txn 7 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 9 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 400] SUMMARY: 10 commits, 0 aborts
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1253 txn 8 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] key=overlap_key_1254 txn 9 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 500] SUMMARY: 10 commits, 0 aborts
 
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886896936512 ===
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974482531904 ===
 
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886896936512 ===
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974482531904 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_0 txn 0 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_1 txn 1 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_2 txn 2 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_0 txn 3 COMMITTED
+
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974490924608 ===
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_1 txn 4 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_2 txn 5 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_0 txn 6 COMMITTED
+existing table is createded with name: customer_0, table-id: [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_0 txn 6 COMMITTED
+1, on shard-server id:0
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1000 txn 0 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1001 txn 1 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_1 txn 7 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1002 txn 2 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_2 txn 8 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1003 txn 3 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] WRITE key=rw_key_0 txn 9 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 500] SUMMARY: 10 commits, 0 aborts
 [Worker 5] Completed
-[[32mPASS[0m] Write 5 records
-[[32mPASS[0m] Read and verify 5 records
-Worker completed
-
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886905329216 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 0 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 1 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 2 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 3 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 4 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 5 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 6 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 7 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 8 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] txn 9 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 400] SUMMARY: 10 commits, 0 aborts
-
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886905329216 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1000 txn 0 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1001 txn 1 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1002 txn 2 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1003 txn 3 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1004 txn 4 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1000 txn 5 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1001 txn 6 COMMITTED
@@ -467,9 +438,9 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 400] key=overlap_key_1004 txn 9 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 400] SUMMARY: 10 commits, 0 aborts
 
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886905329216 ===
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974490924608 ===
 
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886905329216 ===
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974490924608 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_RW_CONTENTION] [Shard 0 Worker 400] WRITE key=rw_key_0 txn 0 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 400] WRITE key=rw_key_1 txn 1 COMMITTED
@@ -484,10 +455,47 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_RW_CONTENTION] [Shard 0 Worker 400] SUMMARY: 10 commits, 0 aborts
 [Worker 4] Completed
 [[32mPASS[0m] Write 5 records
+[[32mPASS[0m] Write 5 records
+[[32mPASS[0m] Read and verify 5 records
+Worker completed[[32mPASS[0m] Read and verify 5 records
+
+
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974534960704 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 0 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 1 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 2 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 3 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 4 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 5 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 6 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 7 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 8 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] txn 9 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
+
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974534960704 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+Worker completed
+
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974543353408 ===
+existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 0 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 1 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 2 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 3 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 4 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 5 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 6 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 7 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 8 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] txn 9 COMMITTED
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] SUMMARY: 10 commits, 0 aborts
+[[32mPASS[0m] Write 5 records
 [[32mPASS[0m] Read and verify 5 records
 Worker completed
 
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886922114624 ===
+[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:136974520284736 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_SINGLE_KEY] [Shard 0 Worker 200] txn 0 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 200] txn 1 COMMITTED
@@ -501,24 +509,52 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_SINGLE_KEY] [Shard 0 Worker 200] txn 9 COMMITTED
 [TEST_SINGLE_KEY] [Shard 0 Worker 200] SUMMARY: 10 commits, 0 aborts
 
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886922114624 ===
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974520284736 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_500 txn 0 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_250 txn 0 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_501 txn 1 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_502 txn 2 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_251 txn 1 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_503 txn 3 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_252 txn 2 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_504 txn 4 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_253 txn 3 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_254 txn 4 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_500 txn 5 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_250 txn 5 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_251 txn 6 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_501 txn 6 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_252 txn 7 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_502 txn 7 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_253 txn 8 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_503 txn 8 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] key=overlap_key_254 txn 9 COMMITTED
+[TEST_OVERLAP_KEYS] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] key=overlap_key_504 txn 9 COMMITTED
+
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974534960704 ===
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 200] SUMMARY: 10 commits, 0 aborts
 
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886922114624 ===
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974534960704 ===
 
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886922114624 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974520284736 ===
+
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974520284736 ===
+existing table is createded with name: customer_0, table-id: existing table is createded with name: customer_0, table-id: 1, on shard-server id:10, on shard-server id:
+0[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 0 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 1 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 2 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 3 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 4 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 5 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 6 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_1 txn 7 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_2 txn 8 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] WRITE key=rw_key_0 txn 9 COMMITTED
+[TEST_RW_CONTENTION] [Shard 0 Worker 100] SUMMARY: 10 commits, 0 aborts
+[Worker 1] Completed
+
 [TEST_RW_CONTENTION] [Shard 0 Worker 200] WRITE key=rw_key_0 txn 0 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 200] WRITE key=rw_key_1 txn 1 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 200] WRITE key=rw_key_2 txn 2 COMMITTED
@@ -531,57 +567,9 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_RW_CONTENTION] [Shard 0 Worker 200] WRITE key=rw_key_0 txn 9 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 200] SUMMARY: 10 commits, 0 aborts
 [Worker 2] Completed
-[[32mPASS[0m] Write 5 records
-[[32mPASS[0m] Read and verify 5 records
-Worker completed
+[TEST_SINGLE_KEY] [Shard 0 Worker 0] Final read: key 'contention_key_shared' EXISTS with value: worker_200_iter_9
 
-[TEST_SINGLE_KEY] === Testing Single Key Contention Thread:130886913721920 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 0 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 1 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 2 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 3 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 4 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 5 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 6 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 7 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 8 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] txn 9 COMMITTED
-[TEST_SINGLE_KEY] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
-
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886913721920 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_750 txn 0 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_751 txn 1 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_752 txn 2 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_753 txn 3 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_754 txn 4 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_750 txn 5 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_751 txn 6 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_752 txn 7 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_753 txn 8 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] key=overlap_key_754 txn 9 COMMITTED
-[TEST_OVERLAP_KEYS] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
-
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886913721920 ===
-
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886913721920 ===
-existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 0 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 1 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 2 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 3 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 4 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 5 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 6 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_1 txn 7 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_2 txn 8 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] WRITE key=rw_key_0 txn 9 COMMITTED
-[TEST_RW_CONTENTION] [Shard 0 Worker 300] SUMMARY: 10 commits, 0 aborts
-[Worker 3] Completed
-[TEST_SINGLE_KEY] [Shard 0 Worker 0] Final read: key 'contention_key_shared' EXISTS with value: worker_300_iter_9
-
-[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:130886938900032 ===
+[TEST_OVERLAP_KEYS] === Testing Overlapping Keys Thread:136974543353408 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 0] key=overlap_key_0 txn 0 COMMITTED
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 0] key=overlap_key_1 txn 1 COMMITTED
@@ -596,9 +584,9 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 0] SUMMARY: 10 commits, 0 aborts
 [TEST_OVERLAP_KEYS] [Shard 0 Worker 0] Final read: 5 total keys exist across all groups
 
-[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:130886938900032 ===
+[TEST_CROSS_SHARD] === Testing Cross-Shard Contention Thread:136974543353408 ===
 
-[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:130886938900032 ===
+[TEST_RW_CONTENTION] === Testing Read-Write Contention Thread:136974543353408 ===
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 [TEST_RW_CONTENTION] [Shard 0 Worker 0] WRITE key=rw_key_0 txn 0 COMMITTED
 [TEST_RW_CONTENTION] [Shard 0 Worker 0] WRITE key=rw_key_1 txn 1 COMMITTED
@@ -615,7 +603,7 @@ existing table is createded with name: customer_0, table-id: 1, on shard-server 
 existing table is createded with name: customer_0, table-id: 1, on shard-server id:0
 
 === Database contents (64 rows) ===
-contention_key_shared => worker_300_iter_9
+contention_key_shared => worker_200_iter_9
 overlap_key_0 => worker_0_iter_5
 overlap_key_1 => worker_0_iter_6
 overlap_key_1000 => worker_400_iter_5

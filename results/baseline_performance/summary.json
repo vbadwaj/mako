@@ -1,0 +1,3516 @@
+{
+  "baseline_results": {
+    "1": {
+      "core_count": 1,
+      "throughput": {
+        "txns_per_second": 69945.7,
+        "committed": 2114518,
+        "aborted": 0
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 13462.4,
+          "percentage": 0.0011775147999350617
+        },
+        "total": {
+          "time": 1143190860.0,
+          "percentage": 99.99139505589577
+        },
+        "count": {
+          "time": 84917.0,
+          "percentage": 0.007427429304290887
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 69945.7
+        },
+        "commits": 2114518,
+        "aborts": 0,
+        "counters": {
+          "00": {
+            "count": 53,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 60297,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 1,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 8,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31000,
+            "value": null
+          },
+          "0": {
+            "count": 31000,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 116,
+            "value": null
+          },
+          "worker": {
+            "count": 0,
+            "value": null
+          },
+          "length": {
+            "count": 12,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 1352,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 1,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "transports": {
+            "count": 20251026,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 1,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "Worker": {
+            "count": 0,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 0,
+            "value": null
+          },
+          "n_commits": {
+            "count": 2114518,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 134,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 29054419,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 4,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 69945,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 0,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 13462,
+            "value": null
+          },
+          "total": {
+            "count": 1143190860,
+            "value": null
+          },
+          "count": {
+            "count": 84917,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 13462.4,
+          "total": 1143190860.0,
+          "count": 84917.0
+        },
+        "latency": {
+          "avg_ms": 0.0137404
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0145611,
+          "Payment": 0.0043211,
+          "Delivery": 0.0613022,
+          "OrderStatus": 0.004874,
+          "StockLevel": 0.0799803
+        }
+      }
+    },
+    "6": {
+      "core_count": 6,
+      "throughput": {
+        "txns_per_second": 306093,
+        "committed": 9263245,
+        "aborted": 1821
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 0.497893,
+          "percentage": 8.962562911205948e-06
+        },
+        "total": {
+          "time": 1846542.0,
+          "percentage": 33.23956923110799
+        },
+        "count": {
+          "time": 3708710.0,
+          "percentage": 66.76042180632909
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 306092.0
+        },
+        "commits": 9263245,
+        "aborts": 1806,
+        "counters": {
+          "00": {
+            "count": 56,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 62038,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 6,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 13,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31004,
+            "value": null
+          },
+          "0": {
+            "count": 31004,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 636,
+            "value": null
+          },
+          "worker": {
+            "count": 5,
+            "value": null
+          },
+          "length": {
+            "count": 8,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 4484,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 6,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 6,
+            "value": null
+          },
+          "Worker": {
+            "count": 5,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 5,
+            "value": null
+          },
+          "n_commits": {
+            "count": 9263245,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 587,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 176042175,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 19,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 306093,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 51015,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 306092,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 51015,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 306092,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 51015,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 60,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 10,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 8,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 4,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 2,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 0,
+            "value": null
+          },
+          "total": {
+            "count": 1846542,
+            "value": null
+          },
+          "count": {
+            "count": 3708710,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 0.497893,
+          "total": 1846542.0,
+          "count": 3708710.0
+        },
+        "latency": {
+          "avg_ms": 0.0190044
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0194178,
+          "Payment": 0.00596697,
+          "Delivery": 0.0788741,
+          "OrderStatus": 0.00638551,
+          "StockLevel": 0.120121
+        }
+      }
+    },
+    "7": {
+      "core_count": 7,
+      "throughput": {
+        "txns_per_second": 345545,
+        "committed": 10464726,
+        "aborted": 2078
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 0.519228,
+          "percentage": 8.165884945863647e-06
+        },
+        "total": {
+          "time": 2173152.0,
+          "percentage": 34.17710370371682
+        },
+        "count": {
+          "time": 4185350.0,
+          "percentage": 65.82288813039824
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 345543.0
+        },
+        "commits": 10464726,
+        "aborts": 2059,
+        "counters": {
+          "00": {
+            "count": 57,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 62424,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 7,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 14,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31005,
+            "value": null
+          },
+          "0": {
+            "count": 31005,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 751,
+            "value": null
+          },
+          "worker": {
+            "count": 6,
+            "value": null
+          },
+          "length": {
+            "count": 8,
+            "value": null
+          },
+          "bytes": {
+            "count": 0,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 5194,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 7,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 7,
+            "value": null
+          },
+          "Worker": {
+            "count": 6,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 6,
+            "value": null
+          },
+          "n_commits": {
+            "count": 10464726,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 663,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 205681031,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 21,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 345545,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 49363,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 345543,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 49363,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 345543,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 49363,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 68,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 9,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 7,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 5,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 2,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 0,
+            "value": null
+          },
+          "total": {
+            "count": 2173152,
+            "value": null
+          },
+          "count": {
+            "count": 4185350,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 0.519228,
+          "total": 2173152.0,
+          "count": 4185350.0
+        },
+        "latency": {
+          "avg_ms": 0.0196547
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0200324,
+          "Payment": 0.00613726,
+          "Delivery": 0.0807127,
+          "OrderStatus": 0.00654318,
+          "StockLevel": 0.12573
+        }
+      }
+    },
+    "4": {
+      "core_count": 4,
+      "throughput": {
+        "txns_per_second": 229148,
+        "committed": 6928250,
+        "aborted": 1292
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 16043.2,
+          "percentage": 0.0003606860183247933
+        },
+        "total": {
+          "time": 4447675092.0,
+          "percentage": 99.99340653584315
+        },
+        "count": {
+          "time": 277232.0,
+          "percentage": 0.006232778138539636
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 229147.0
+        },
+        "commits": 6928250,
+        "aborts": 1282,
+        "counters": {
+          "00": {
+            "count": 55,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 61505,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 4,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 11,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31001,
+            "value": null
+          },
+          "0": {
+            "count": 31001,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 489,
+            "value": null
+          },
+          "worker": {
+            "count": 3,
+            "value": null
+          },
+          "length": {
+            "count": 153,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 3957,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 4,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 4,
+            "value": null
+          },
+          "Worker": {
+            "count": 3,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 3,
+            "value": null
+          },
+          "n_commits": {
+            "count": 6928250,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 439,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 116856320,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 14,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 229148,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 57286,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 229147,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 57286,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 229147,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 57286,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 42,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 10,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 8,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 5,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 3,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 16043,
+            "value": null
+          },
+          "total": {
+            "count": 4447675092,
+            "value": null
+          },
+          "count": {
+            "count": 277232,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 16043.2,
+          "total": 4447675092.0,
+          "count": 277232.0
+        },
+        "latency": {
+          "avg_ms": 0.0168666
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0175344,
+          "Payment": 0.00534954,
+          "Delivery": 0.0710204,
+          "OrderStatus": 0.00580465,
+          "StockLevel": 0.102921
+        }
+      }
+    },
+    "5": {
+      "core_count": 5,
+      "throughput": {
+        "txns_per_second": 265492,
+        "committed": 8028540,
+        "aborted": 1561
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 0.337588,
+          "percentage": 3.999568593396542e-07
+        },
+        "total": {
+          "time": 21302888.0,
+          "percentage": 25.23856351334884
+        },
+        "count": {
+          "time": 63103215.0,
+          "percentage": 74.76143608669432
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 265491.0
+        },
+        "commits": 8028540,
+        "aborts": 1549,
+        "counters": {
+          "00": {
+            "count": 55,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 61719,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 5,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 12,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31003,
+            "value": null
+          },
+          "0": {
+            "count": 31003,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 577,
+            "value": null
+          },
+          "worker": {
+            "count": 4,
+            "value": null
+          },
+          "length": {
+            "count": 12,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 4275,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 5,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 5,
+            "value": null
+          },
+          "Worker": {
+            "count": 4,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 4,
+            "value": null
+          },
+          "n_commits": {
+            "count": 8028540,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 509,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 146424462,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 16,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 265492,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 53098,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 265491,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 53098,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 265491,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 53098,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 51,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 10,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 8,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 6,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 6,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 0,
+            "value": null
+          },
+          "total": {
+            "count": 21302888,
+            "value": null
+          },
+          "count": {
+            "count": 63103215,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 0.337588,
+          "total": 21302888.0,
+          "count": 63103215.0
+        },
+        "latency": {
+          "avg_ms": 0.018238
+        },
+        "txn_latencies": {
+          "NewOrder": 0.018834,
+          "Payment": 0.00567683,
+          "Delivery": 0.0762288,
+          "OrderStatus": 0.00613761,
+          "StockLevel": 0.113409
+        }
+      }
+    },
+    "2": {
+      "core_count": 2,
+      "throughput": {
+        "txns_per_second": 134877,
+        "committed": 4079634,
+        "aborted": 750
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 0.224115,
+          "percentage": 5.695469345751012e-07
+        },
+        "total": {
+          "time": 7204267.0,
+          "percentage": 18.308315756243715
+        },
+        "count": {
+          "time": 32145431.0,
+          "percentage": 81.69168367420934
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 134876.0
+        },
+        "commits": 4079634,
+        "aborts": 744,
+        "counters": {
+          "00": {
+            "count": 53,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 60737,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 2,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 9,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31001,
+            "value": null
+          },
+          "0": {
+            "count": 31001,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 253,
+            "value": null
+          },
+          "worker": {
+            "count": 1,
+            "value": null
+          },
+          "length": {
+            "count": 153,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 2144,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 2,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 2,
+            "value": null
+          },
+          "Worker": {
+            "count": 1,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 1,
+            "value": null
+          },
+          "n_commits": {
+            "count": 4079634,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 258,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 58138464,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 8,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 134877,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 67438,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 134876,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 67438,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 134876,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 67438,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 24,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 12,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 7,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 1,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 6,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 0,
+            "value": null
+          },
+          "total": {
+            "count": 7204267,
+            "value": null
+          },
+          "count": {
+            "count": 32145431,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 0.224115,
+          "total": 7204267.0,
+          "count": 32145431.0
+        },
+        "latency": {
+          "avg_ms": 0.0142509
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0151944,
+          "Payment": 0.00453989,
+          "Delivery": 0.0611576,
+          "OrderStatus": 0.00506922,
+          "StockLevel": 0.0829602
+        }
+      }
+    },
+    "3": {
+      "core_count": 3,
+      "throughput": {
+        "txns_per_second": 194681,
+        "committed": 5888202,
+        "aborted": 1065
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 14547.6,
+          "percentage": 0.0004239155752875005
+        },
+        "total": {
+          "time": 3431470616.0,
+          "percentage": 99.99270259450313
+        },
+        "count": {
+          "time": 235879.0,
+          "percentage": 0.00687348992158434
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 194681.0
+        },
+        "commits": 5888202,
+        "aborts": 1057,
+        "counters": {
+          "00": {
+            "count": 54,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 61004,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 3,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 10,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31002,
+            "value": null
+          },
+          "0": {
+            "count": 31002,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 296,
+            "value": null
+          },
+          "worker": {
+            "count": 2,
+            "value": null
+          },
+          "length": {
+            "count": 153,
+            "value": null
+          },
+          "took": {
+            "count": 2990,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 3,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "false": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 3,
+            "value": null
+          },
+          "Worker": {
+            "count": 2,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 2,
+            "value": null
+          },
+          "n_commits": {
+            "count": 5888202,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 373,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 87317600,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 12,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 194681,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 64893,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 194681,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 64893,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 194681,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 64893,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 35,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 11,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 7,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 5,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 4,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 14547,
+            "value": null
+          },
+          "total": {
+            "count": 3431470616,
+            "value": null
+          },
+          "count": {
+            "count": 235879,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 14547.6,
+          "total": 3431470616.0,
+          "count": 235879.0
+        },
+        "latency": {
+          "avg_ms": 0.0148292
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0156999,
+          "Payment": 0.00472243,
+          "Delivery": 0.0623034,
+          "OrderStatus": 0.00525881,
+          "StockLevel": 0.0887005
+        }
+      }
+    },
+    "8": {
+      "core_count": 8,
+      "throughput": {
+        "txns_per_second": 348839,
+        "committed": 10558657,
+        "aborted": 2160
+      },
+      "phase_breakdown": {
+        "avg": {
+          "time": 20481.8,
+          "percentage": 0.00023637239707230594
+        },
+        "total": {
+          "time": 8664612236.0,
+          "percentage": 99.99488150091071
+        },
+        "count": {
+          "time": 423039.0,
+          "percentage": 0.0048821266922375595
+        }
+      },
+      "metrics": {
+        "throughput": {
+          "txns_per_second": 348837.0
+        },
+        "commits": 10558657,
+        "aborts": 2141,
+        "counters": {
+          "00": {
+            "count": 57,
+            "value": null
+          },
+          "cc": {
+            "count": 585,
+            "value": null
+          },
+          "format": {
+            "count": 20251026,
+            "value": null
+          },
+          "Loaded": {
+            "count": 1,
+            "value": null
+          },
+          "in": {
+            "count": 1,
+            "value": null
+          },
+          "shards": {
+            "count": 20251026,
+            "value": null
+          },
+          "hugepgsize": {
+            "count": 2097152,
+            "value": null
+          },
+          "MADV_WILLNEED": {
+            "count": 1,
+            "value": null
+          },
+          "pid": {
+            "count": 62707,
+            "value": null
+          },
+          "cpus": {
+            "count": 8,
+            "value": null
+          },
+          "threads": {
+            "count": 8,
+            "value": null
+          },
+          "shardIndex": {
+            "count": 0,
+            "value": null
+          },
+          "nshards": {
+            "count": 1,
+            "value": null
+          },
+          "is_micro": {
+            "count": 0,
+            "value": null
+          },
+          "is_replicated": {
+            "count": 0,
+            "value": null
+          },
+          "cross_partition_transactions": {
+            "count": 1,
+            "value": null
+          },
+          "read_only_snapshots": {
+            "count": 1,
+            "value": null
+          },
+          "partition_locks": {
+            "count": 0,
+            "value": null
+          },
+          "separate_tree_per_partition": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_remote_item_pct": {
+            "count": 1,
+            "value": null
+          },
+          "new_order_fast_id_gen": {
+            "count": 1,
+            "value": null
+          },
+          "uniform_item_dist": {
+            "count": 0,
+            "value": null
+          },
+          "order_status_scan_hack": {
+            "count": 0,
+            "value": null
+          },
+          "id": {
+            "count": 15,
+            "value": null
+          },
+          "rrr": {
+            "count": 20251026,
+            "value": null
+          },
+          "on": {
+            "count": 127,
+            "value": null
+          },
+          "1": {
+            "count": 31006,
+            "value": null
+          },
+          "0": {
+            "count": 31006,
+            "value": null
+          },
+          "loop": {
+            "count": 20251026,
+            "value": null
+          },
+          "size": {
+            "count": 807,
+            "value": null
+          },
+          "worker": {
+            "count": 7,
+            "value": null
+          },
+          "length": {
+            "count": 8,
+            "value": null
+          },
+          "batches": {
+            "count": 30,
+            "value": null
+          },
+          "took": {
+            "count": 5901,
+            "value": null
+          },
+          "phase": {
+            "count": 20251026,
+            "value": null
+          },
+          "nthreads": {
+            "count": 8,
+            "value": null
+          },
+          "JEMALLOC_NO_RENAME": {
+            "count": 20251026,
+            "value": null
+          },
+          "runTime": {
+            "count": 30,
+            "value": null
+          },
+          "left": {
+            "count": 1000,
+            "value": null
+          },
+          "bool": {
+            "count": 1,
+            "value": null
+          },
+          "runtime_plus": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_req_sent": {
+            "count": 0,
+            "value": null
+          },
+          "counter": {
+            "count": 0,
+            "value": null
+          },
+          "nan": {
+            "count": 20251026,
+            "value": null
+          },
+          "flag": {
+            "count": 20251026,
+            "value": null
+          },
+          "successfully": {
+            "count": 20251026,
+            "value": null
+          },
+          "Signaling": {
+            "count": 0,
+            "value": null
+          },
+          "stop": {
+            "count": 20251026,
+            "value": null
+          },
+          "destructor": {
+            "count": 20251026,
+            "value": null
+          },
+          "connections": {
+            "count": 20251026,
+            "value": null
+          },
+          "Found": {
+            "count": 0,
+            "value": null
+          },
+          "close": {
+            "count": 20251026,
+            "value": null
+          },
+          "Closed": {
+            "count": 0,
+            "value": null
+          },
+          "msg_size_resp_sent": {
+            "count": 0,
+            "value": null
+          },
+          "END": {
+            "count": 20251026,
+            "value": null
+          },
+          "Joining": {
+            "count": 8,
+            "value": null
+          },
+          "Worker": {
+            "count": 7,
+            "value": null
+          },
+          "Stopping": {
+            "count": 2,
+            "value": null
+          },
+          "transport": {
+            "count": 1,
+            "value": null
+          },
+          "cleanly": {
+            "count": 20251026,
+            "value": null
+          },
+          "shardIdx": {
+            "count": 0,
+            "value": null
+          },
+          "alpha": {
+            "count": 1,
+            "value": null
+          },
+          "par_id": {
+            "count": 7,
+            "value": null
+          },
+          "n_commits": {
+            "count": 10558657,
+            "value": null
+          },
+          "runtime": {
+            "count": 30,
+            "value": null
+          },
+          "delta": {
+            "count": 669,
+            "value": null
+          },
+          "latency_numer_us": {
+            "count": 235598583,
+            "value": null
+          },
+          "latency_numer_us_remote": {
+            "count": 0,
+            "value": null
+          },
+          "rate": {
+            "count": 22,
+            "value": null
+          },
+          "agg_nosync_throughput": {
+            "count": 348839,
+            "value": null
+          },
+          "avg_nosync_per_core_throughput": {
+            "count": 43604,
+            "value": null
+          },
+          "agg_throughput": {
+            "count": 348837,
+            "value": null
+          },
+          "avg_per_core_throughput": {
+            "count": 43604,
+            "value": null
+          },
+          "agg_persist_throughput": {
+            "count": 348837,
+            "value": null
+          },
+          "avg_per_core_persist_throughput": {
+            "count": 43604,
+            "value": null
+          },
+          "avg_latency": {
+            "count": 0,
+            "value": null
+          },
+          "avg_persist_latency": {
+            "count": 0,
+            "value": null
+          },
+          "agg_abort_rate": {
+            "count": 71,
+            "value": null
+          },
+          "avg_per_core_abort_rate": {
+            "count": 8,
+            "value": null
+          },
+          "NewOrder_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_local_abort_ratio": {
+            "count": 7,
+            "value": null
+          },
+          "Payment_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_local_abort_ratio": {
+            "count": 5,
+            "value": null
+          },
+          "Delivery_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "Delivery_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "OrderStatus_local_abort_ratio": {
+            "count": 4,
+            "value": null
+          },
+          "StockLevel_local_commit_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_latency": {
+            "count": 0,
+            "value": null
+          },
+          "StockLevel_local_abort_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "NewOrder_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "Payment_remote_ratio": {
+            "count": 0,
+            "value": null
+          },
+          "avg": {
+            "count": 20481,
+            "value": null
+          },
+          "total": {
+            "count": 8664612236,
+            "value": null
+          },
+          "count": {
+            "count": 423039,
+            "value": null
+          }
+        },
+        "probes": {
+          "avg": 20481.8,
+          "total": 8664612236.0,
+          "count": 423039.0
+        },
+        "latency": {
+          "avg_ms": 0.0223133
+        },
+        "txn_latencies": {
+          "NewOrder": 0.0225964,
+          "Payment": 0.0069566,
+          "Delivery": 0.0911122,
+          "OrderStatus": 0.00743488,
+          "StockLevel": 0.143283
+        }
+      }
+    }
+  }
+}

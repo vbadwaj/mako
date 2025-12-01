@@ -16,6 +16,9 @@
 #include "../counter.h"
 #include "../scopedperf.hh"
 #include "../allocator.h"
+#ifdef ENABLE_BATCH_VALIDATION
+#include "../txn_occ_batch_validation.h"
+#endif
 #include "sto/Transaction.hh"
 #include "lib/configuration.h"
 #include "common.h"
@@ -701,6 +704,21 @@ bench_runner::run()
     for (map<string, counter_data>::iterator it = ctrs.begin();
          it != ctrs.end(); ++it)
       cerr << it->first << ": " << it->second << endl;
+#ifdef ENABLE_BATCH_VALIDATION
+    {
+      auto& batch_stats = mako::GetBatchValidationStats();
+      const uint64_t batches = batch_stats.num_batches.load();
+      const uint64_t txns = batch_stats.num_txns_in_batches.load();
+      const uint64_t committed = batch_stats.num_batch_committed.load();
+      const uint64_t aborted = batch_stats.num_batch_aborted.load();
+      cerr << "--- batch validation stats ---" << endl;
+      cerr << "  batches_run          : " << batches << endl;
+      cerr << "  txns_in_batches      : " << txns << endl;
+      cerr << "  batch_committed_txns : " << committed << endl;
+      cerr << "  batch_aborted_txns   : " << aborted << endl;
+    }
+    PrintStoBatchValidationStats(cerr);
+#endif
     cerr << "--- perf counters (if enabled, for benchmark) ---" << endl;
     PERF_EXPR(scopedperf::perfsum_base::printall());
     cerr << "--- allocator stats ---" << endl;

@@ -1,0 +1,21 @@
+# Local configuration for baseline performance testing
+# 2 shards, 1 warehouse each, single localhost
+
+sites:
+    - name: "s0_leader"
+      id: 1
+      ip: 127.0.0.1
+      port: 31000
+    - name: "s1_leader"
+      id: 2
+      ip: 127.0.0.1
+      port: 31001
+
+shard_map:
+    - ["s0_leader"]  # Shard 0
+    - ["s1_leader"]  # Shard 1
+
+warehouses: 1  # warehouses per shard
+
+memlocalhost: 31500
+

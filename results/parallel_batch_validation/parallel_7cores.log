@@ -1,0 +1,544 @@
+20251026-01:17.59-258992(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:17.59-259086(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:17.59-259112(us) 78095 * handle_new_config_format (dbtest.cc:131):    Site local_s0: shard=0, replica_idx=0, is_leader=1, cluster=localhost
+allocator::Initialize()
+  hugepgsize: 2097152
+  use MADV_WILLNEED: 1
+  mmap() region [0x745939400000, 0x74597a200000)
+cpu0 owns [0x745939400000, 0x745942800000)
+cpu1 owns [0x745942800000, 0x74594bc00000)
+cpu2 owns [0x74594bc00000, 0x745955000000)
+cpu3 owns [0x745955000000, 0x74595e400000)
+cpu4 owns [0x74595e400000, 0x745967800000)
+cpu5 owns [0x745967800000, 0x745970c00000)
+cpu6 owns [0x745970c00000, 0x74597a000000)
+Database Benchmark:
+  pid: 78095
+settings:
+  num-cpus    : 8
+  num-threads : 7
+  shardIndex  : 0
+  paxos_proc_name  : localhost
+  nshards     : 1
+  is_micro    : 0
+  is_replicated : 0
+  var-encode  : yes
+  allocator   : jemalloc
+system properties:
+  tuple_prefetch          : no
+  btree_node_prefetch     : yes
+tpcc settings:
+  cross_partition_transactions : 1
+  read_only_snapshots          : 1
+  partition_locks              : 0
+  separate_tree_per_partition  : 1
+  new_order_remote_item_pct    : 1
+  new_order_fast_id_gen        : 1
+  uniform_item_dist            : 0
+  order_status_scan_hack       : 0
+  workload_mix                 : [45, 43, 4, 4, 4]
+new table is createded with name: customer_0, table-id: 1, on shard-server id:0
+new table is createded with name: customer_1, table-id: 2, on shard-server id:0
+new table is createded with name: customer_2, table-id: 3, on shard-server id:0
+new table is createded with name: customer_3, table-id: 4, on shard-server id:0
+new table is createded with name: customer_4, table-id: 5, on shard-server id:0
+new table is createded with name: customer_5, table-id: 6, on shard-server id:0
+new table is createded with name: customer_6, table-id: 7, on shard-server id:0
+new table is createded with name: customer_name_idx_0, table-id: 8, on shard-server id:0
+new table is createded with name: customer_name_idx_1, table-id: 9, on shard-server id:0
+new table is createded with name: customer_name_idx_2, table-id: 10, on shard-server id:0
+new table is createded with name: customer_name_idx_3, table-id: 11, on shard-server id:0
+new table is createded with name: customer_name_idx_4, table-id: 12, on shard-server id:0
+new table is createded with name: customer_name_idx_5, table-id: 13, on shard-server id:0
+new table is createded with name: customer_name_idx_6, table-id: 14, on shard-server id:0
+new table is createded with name: district_0, table-id: 15, on shard-server id:0
+new table is createded with name: district_1, table-id: 16, on shard-server id:0
+new table is createded with name: district_2, table-id: 17, on shard-server id:0
+new table is createded with name: district_3, table-id: 18, on shard-server id:0
+new table is createded with name: district_4, table-id: 19, on shard-server id:0
+new table is createded with name: district_5, table-id: 20, on shard-server id:0
+new table is createded with name: district_6, table-id: 21, on shard-server id:0
+new table is createded with name: history_0, table-id: 22, on shard-server id:0
+new table is createded with name: history_1, table-id: 23, on shard-server id:0
+new table is createded with name: history_2, table-id: 24, on shard-server id:0
+new table is createded with name: history_3, table-id: 25, on shard-server id:0
+new table is createded with name: history_4, table-id: 26, on shard-server id:0
+new table is createded with name: history_5, table-id: 27, on shard-server id:0
+new table is createded with name: history_6, table-id: 28, on shard-server id:0
+new table is createded with name: new_order_0, table-id: 29, on shard-server id:0
+new table is createded with name: new_order_1, table-id: 30, on shard-server id:0
+new table is createded with name: new_order_2, table-id: 31, on shard-server id:0
+new table is createded with name: new_order_3, table-id: 32, on shard-server id:0
+new table is createded with name: new_order_4, table-id: 33, on shard-server id:0
+new table is createded with name: new_order_5, table-id: 34, on shard-server id:0
+new table is createded with name: new_order_6, table-id: 35, on shard-server id:0
+new table is createded with name: oorder_0, table-id: 36, on shard-server id:0
+new table is createded with name: oorder_1, table-id: 37, on shard-server id:0
+new table is createded with name: oorder_2, table-id: 38, on shard-server id:0
+new table is createded with name: oorder_3, table-id: 39, on shard-server id:0
+new table is createded with name: oorder_4, table-id: 40, on shard-server id:0
+new table is createded with name: oorder_5, table-id: 41, on shard-server id:0
+new table is createded with name: oorder_6, table-id: 42, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_0, table-id: 43, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_1, table-id: 44, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_2, table-id: 45, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_3, table-id: 46, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_4, table-id: 47, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_5, table-id: 48, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_6, table-id: 49, on shard-server id:0
+new table is createded with name: order_line_0, table-id: 50, on shard-server id:0
+new table is createded with name: order_line_1, table-id: 51, on shard-server id:0
+new table is createded with name: order_line_2, table-id: 52, on shard-server id:0
+new table is createded with name: order_line_3, table-id: 53, on shard-server id:0
+new table is createded with name: order_line_4, table-id: 54, on shard-server id:0
+new table is createded with name: order_line_5, table-id: 55, on shard-server id:0
+new table is createded with name: order_line_6, table-id: 56, on shard-server id:0
+new table is createded with name: stock_0, table-id: 57, on shard-server id:0
+new table is createded with name: stock_1, table-id: 58, on shard-server id:0
+new table is createded with name: stock_2, table-id: 59, on shard-server id:0
+new table is createded with name: stock_3, table-id: 60, on shard-server id:0
+new table is createded with name: stock_4, table-id: 61, on shard-server id:0
+new table is createded with name: stock_5, table-id: 62, on shard-server id:0
+new table is createded with name: stock_6, table-id: 63, on shard-server id:0
+new table is createded with name: stock_data_0, table-id: 64, on shard-server id:0
+new table is createded with name: stock_data_1, table-id: 65, on shard-server id:0
+new table is createded with name: stock_data_2, table-id: 66, on shard-server id:0
+new table is createded with name: stock_data_3, table-id: 67, on shard-server id:0
+new table is createded with name: stock_data_4, table-id: 68, on shard-server id:0
+new table is createded with name: stock_data_5, table-id: 69, on shard-server id:0
+new table is createded with name: stock_data_6, table-id: 70, on shard-server id:0
+new table is createded with name: warehouse_0, table-id: 71, on shard-server id:0
+new table is createded with name: warehouse_1, table-id: 72, on shard-server id:0
+new table is createded with name: warehouse_2, table-id: 73, on shard-server id:0
+new table is createded with name: warehouse_3, table-id: 74, on shard-server id:0
+new table is createded with name: warehouse_4, table-id: 75, on shard-server id:0
+new table is createded with name: warehouse_5, table-id: 76, on shard-server id:0
+new table is createded with name: warehouse_6, table-id: 77, on shard-server id:0
+new table is createded with name: item, table-id: 78, on shard-server id:0
+20251026-01:17.59-260465(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:17.59-260521(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:17.59-260569(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:17.59-260624(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+[TRANSPORT] Using default: rrr
+20251026-01:17.59-260886(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31012 (listening on 0.0.0.0:31012)
+20251026-01:17.59-260947(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31012
+20251026-01:17.59-260978(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+20251026-01:17.59-261012(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31013 (listening on 0.0.0.0:31013)
+20251026-01:17.59-261038(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31013
+20251026-01:17.59-261054(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+20251026-01:17.59-262613(us) 78095 ! run             (bench.cc:357):     # of loaders size:6
+start worker:1396
+PinToWarehouseId(): coreid=2 pinned to whse=1 (partid=0)
+[INFO] finished loading warehouse
+[INFO]   * average warehouse record length: 97 bytes
+PinToWarehouseId(): coreid=3 pinned to whse=1 (partid=0)
+PinToWarehouseId(): coreid=3 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=3 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=3 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=3 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=3 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=3 pinned to whse=7 (partid=6)
+[INFO] finished loading district
+[INFO]   * average district record length: num batches: 30
+PinToWarehouseId(): coreid=4 pinned to whse=1 (partid=0)
+99 bytes
+PinToWarehouseId(): coreid=5 pinned to whse=1 (partid=0)
+PinToWarehouseId(): coreid=5 pinned to whse=2 (partid=1)
+[INFO] finished loading item
+[INFO]   * average item record length: 84.1739 bytes
+PinToWarehouseId(): coreid=4 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=5 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=5 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=5 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=4 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=5 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=2 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=5 pinned to whse=7 (partid=6)
+PinToWarehouseId(): coreid=4 pinned to whse=4 (partid=3)
+[INFO] finished loading order
+[INFO]   * average order_line record length: 11.2605 bytes
+[INFO]   * average oorder record length: 7.90037 bytes
+[INFO]   * average new_order record length: 12 bytes
+PinToWarehouseId(): coreid=4 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=4 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=2 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=4 pinned to whse=7 (partid=6)
+[INFO] finished loading customer
+[INFO]   * average customer record length: 153.961 bytes 
+PinToWarehouseId(): coreid=2 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=2 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=2 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=2 pinned to whse=7 (partid=6)
+[INFO] finished loading stock
+[INFO]   * average stock record length: 8 bytes
+timed region dataloading took 5181.81 ms
+DB size: 790.488 MB
+[0, 0, 0] txns persisted in loading phase
+20251026-01:18.04-444503(us) 78095 ! run             (bench.cc:410):     # of nthreads:7
+starting benchmark...
+--------------Finish loading data and wait for others completing load phase ------------
+tpcc: worker id 8 => warehouses [1, 2)
+tpcc: worker id 9 => warehouses [2, 3)
+tpcc: worker id 10 => warehouses [3, 4)
+tpcc: worker id 11 => warehouses [4, 5)
+tpcc: worker id 12 => warehouses [5, 6)
+tpcc: worker id 13 => warehouses [6, 7)
+tpcc: worker id 14 => warehouses [7, 8)
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+20251026-01:18.04-447952(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-447992(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448039(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+No JEMALLOC_NO_RENAME
+20251026-01:18.04-448204(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448272(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448301(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448352(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448422(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448448(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448499(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448543(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448593(us) 78095 [TRANSPORT] Using default: rrr
+* ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448631(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448662(us) 78095 * [TRANSPORT] Using default: rrr
+ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448704(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-448740(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31004 (listening on 0.0.0.0:31004)
+20251026-01:18.04-448761(us) 78095 * [TRANSPORT] Using default: rrr
+FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31004
+20251026-01:18.04-448798(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31002 (listening on 0.0.0.0:31002)
+20251026-01:18.04-448819(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31002
+20251026-01:18.04-448892(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31000 (listening on 0.0.0.0:31000)
+20251026-01:18.04-448927(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31000
+20251026-01:18.04-448957(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-448992(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449031(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449094(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449147(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251026-01:18.04-449209(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449283(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449315(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449351(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449396(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449426(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449506(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449548(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-449610(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31001 (listening on 0.0.0.0:31001)
+20251026-01:18.04-449635(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31001
+20251026-01:18.04-449673(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449741(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251026-01:18.04-449821(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-449872(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251026-01:18.04-449933(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31003 (listening on 0.0.0.0:31003)
+20251026-01:18.04-449957(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31003
+20251026-01:18.04-450043(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31006 (listening on 0.0.0.0:31006)
+20251026-01:18.04-450101(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31006
+20251026-01:18.04-450179(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-450227(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-450306(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-450340(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-450386(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251026-01:18.04-450603(us) 78095 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31005 (listening on 0.0.0.0:31005)
+20251026-01:18.04-450634(us) 78095 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31005
+20251026-01:18.04-450847(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-450888(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-451042(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-451081(us) 78095 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251026-01:18.04-451125(us) 78095 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251026-01:18.04-451477(us) 78095 ! run             (bench.cc:461):     start the running time, runTime:30
+20251026-01:18.04-451525(us) 78095 ! run             (bench.cc:473):     runtime time left:30000 ms, bool:1
+20251026-01:18.05-459020(us) 78095 ! run             (bench.cc:473):     runtime time left:29000 ms, bool:1
+20251026-01:18.06-467242(us) 78095 ! run             (bench.cc:473):     runtime time left:28000 ms, bool:1
+20251026-01:18.07-475958(us) 78095 ! run             (bench.cc:473):     runtime time left:27000 ms, bool:1
+20251026-01:18.08-484630(us) 78095 ! run             (bench.cc:473):     runtime time left:26000 ms, bool:1
+20251026-01:18.09-492915(us) 78095 ! run             (bench.cc:473):     runtime time left:25000 ms, bool:1
+20251026-01:18.10-501951(us) 78095 ! run             (bench.cc:473):     runtime time left:24000 ms, bool:1
+20251026-01:18.11-509815(us) 78095 ! run             (bench.cc:473):     runtime time left:23000 ms, bool:1
+20251026-01:18.12-517958(us) 78095 ! run             (bench.cc:473):     runtime time left:22000 ms, bool:1
+20251026-01:18.13-525857(us) 78095 ! run             (bench.cc:473):     runtime time left:21000 ms, bool:1
+20251026-01:18.14-535690(us) 78095 ! run             (bench.cc:473):     runtime time left:20000 ms, bool:1
+20251026-01:18.15-543371(us) 78095 ! run             (bench.cc:473):     runtime time left:19000 ms, bool:1
+20251026-01:18.16-550856(us) 78095 ! run             (bench.cc:473):     runtime time left:18000 ms, bool:1
+20251026-01:18.17-559084(us) 78095 ! run             (bench.cc:473):     runtime time left:17000 ms, bool:1
+20251026-01:18.18-567680(us) 78095 ! run             (bench.cc:473):     runtime time left:16000 ms, bool:1
+20251026-01:18.19-576409(us) 78095 ! run             (bench.cc:473):     runtime time left:15000 ms, bool:1
+20251026-01:18.20-583916(us) 78095 ! run             (bench.cc:473):     runtime time left:14000 ms, bool:1
+20251026-01:18.21-591783(us) 78095 ! run             (bench.cc:473):     runtime time left:13000 ms, bool:1
+20251026-01:18.22-599262(us) 78095 ! run             (bench.cc:473):     runtime time left:12000 ms, bool:1
+20251026-01:18.23-608178(us) 78095 ! run             (bench.cc:473):     runtime time left:11000 ms, bool:1
+20251026-01:18.24-616119(us) 78095 ! run             (bench.cc:473):     runtime time left:10000 ms, bool:1
+20251026-01:18.25-624046(us) 78095 ! run             (bench.cc:473):     runtime time left:9000 ms, bool:1
+20251026-01:18.26-631870(us) 78095 ! run             (bench.cc:473):     runtime time left:8000 ms, bool:1
+20251026-01:18.27-639833(us) 78095 ! run             (bench.cc:473):     runtime time left:7000 ms, bool:1
+20251026-01:18.28-649617(us) 78095 ! run             (bench.cc:473):     runtime time left:6000 ms, bool:1
+20251026-01:18.29-657541(us) 78095 ! run             (bench.cc:473):     runtime time left:5000 ms, bool:1
+20251026-01:18.30-665448(us) 78095 ! run             (bench.cc:473):     runtime time left:4000 ms, bool:1
+20251026-01:18.31-673108(us) 78095 ! run             (bench.cc:473):     runtime time left:3000 ms, bool:1
+20251026-01:18.32-680644(us) 78095 ! run             (bench.cc:473):     runtime time left:2000 ms, bool:1
+20251026-01:18.33-688830(us) 78095 ! run             (bench.cc:473):     runtime time left:1000 ms, bool:1
+20251026-01:18.34-699179(us) 78095 ! run             (bench.cc:483):     runtime_plus:0
+[SHUTDOWN] Setting running=false to stop database worker threads
+[SHUTDOWN] Calling first stop() to stop client transportsjump out the while loop
+20251026-01:18.34-699802(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+jump out the while loop
+20251026-01:18.34-699858(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+jump out the while loop
+20251026-01:18.34-699902(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+
+20251026-01:18.34-700017(us) 78095 ! jump out the while loop
+stop            (bench.cc:332):     stop all erpc clients. set stop=false
+20251026-01:18.34-700078(us) 78095 * Stop            (rrr_rpc_backend.cc:589): jump out the while loop
+RrrRpcBackend::Stop: BEGIN - Setting stop flag
+jump out the while loop
+20251026-01:18.34-700119(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+jump out the while loop
+20251026-01:18.34-700306(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-700338(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-700367(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-700394(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-700515(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-700545(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-700582(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-700630(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-700691(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-700730(us) 78095 * PrintStats      (rrr_rpc_backend.cc:679): RrrRpcBackend request stats: msg_size_req_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-700856(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-700930(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-700946(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-700960(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-700974(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-700989(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-701002(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-701017(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-701031(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-701045(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-701059(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-701081(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-701095(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-701109(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-701123(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-701137(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-701175(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-701190(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-701208(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-701225(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-701243(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-701260(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-701277(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-701294(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-701312(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-701348(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-701366(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-701383(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-701400(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-701425(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-701443(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-701460(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-701477(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-701513(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-701530(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-701560(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-701578(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-701595(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-701613(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-701630(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-701647(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-701664(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-701681(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-701699(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-701729(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-701746(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-701764(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-701782(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-701799(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-701816(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-701833(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-701850(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-701867(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-701884(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-701901(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-701943(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-701960(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-701977(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+20251026-01:18.34-701995(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.34-702012(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.34-702036(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.34-702053(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.34-702070(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.34-702087(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.34-702105(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.34-702122(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.34-702139(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.34-702177(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.34-702196(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+[SHUTDOWN] First stop() completed
+[SHUTDOWN] Joining 7 worker threads
+[SHUTDOWN] Joining worker 0
+[SHUTDOWN] Worker 0 joined
+[SHUTDOWN] Joining worker 1
+[SHUTDOWN] Worker 1 joined
+[SHUTDOWN] Joining worker 2
+[SHUTDOWN] Worker 2 joined
+[SHUTDOWN] Joining worker 3
+[SHUTDOWN] Worker 3 joined
+[SHUTDOWN] Joining worker 4
+[SHUTDOWN] Worker 4 joined
+[SHUTDOWN] Joining worker 5
+[SHUTDOWN] Worker 5 joined
+[SHUTDOWN] Joining worker 6
+[SHUTDOWN] Worker 6 joined
+[SHUTDOWN] All workers joined
+[SHUTDOWN] Calling stop_erpc_server()
+[STOP_SERVER] Stopping 2 server transports
+[STOP_SERVER] Stopping server transport 0
+20251026-01:18.35-701086(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.35-701109(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.35-701130(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:573): RrrRpcBackend::RunEventLoop: Stop flag detected, exiting event loop
+20251026-01:18.35-701184(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:577): RrrRpcBackend::RunEventLoop: Exited cleanly
+20251026-01:18.35-701200(us) 78095 * erpc_server     (rpc_setup.cc:121): the erpc_server is terminated on shardIdx:0, alpha:0!
+20251026-01:18.35-711163(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.35-711199(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.35-711217(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.35-711234(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.35-711249(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.35-711263(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.35-711277(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.35-711291(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.35-711306(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+[STOP_SERVER] Server transport 0 stopped
+[STOP_SERVER] Stopping server transport 1
+20251026-01:18.35-711337(us) 78095 * Stop            (rrr_rpc_backend.cc:589): RrrRpcBackend::Stop: BEGIN - Setting stop flag
+20251026-01:18.35-711351(us) 78095 * Stop            (rrr_rpc_backend.cc:592): RrrRpcBackend::Stop: Waiting for event loop to exit...
+20251026-01:18.35-711380(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:573): RrrRpcBackend::RunEventLoop: Stop flag detected, exiting event loop
+20251026-01:18.35-711413(us) 78095 * RunEventLoop    (rrr_rpc_backend.cc:577): RrrRpcBackend::RunEventLoop: Exited cleanly
+20251026-01:18.35-711428(us) 78095 * erpc_server     (rpc_setup.cc:121): the erpc_server is terminated on shardIdx:0, alpha:1!
+20251026-01:18.35-721431(us) 78095 * Stop            (rrr_rpc_backend.cc:608): RrrRpcBackend::Stop: Event loop exited successfully
+20251026-01:18.35-721466(us) 78095 * Stop            (rrr_rpc_backend.cc:612): RrrRpcBackend::Stop: Signaling 0 request queues to stop
+20251026-01:18.35-721484(us) 78095 * Stop            (rrr_rpc_backend.cc:620): RrrRpcBackend::Stop: Signaling 0 response queues to stop
+20251026-01:18.35-721500(us) 78095 * Stop            (rrr_rpc_backend.cc:631): RrrRpcBackend::Stop: Server cleanup deferred to destructor
+20251026-01:18.35-721514(us) 78095 * Stop            (rrr_rpc_backend.cc:634): RrrRpcBackend::Stop: Closing client connections
+20251026-01:18.35-721528(us) 78095 * Stop            (rrr_rpc_backend.cc:638): RrrRpcBackend::Stop: Found 0 client connections to close
+20251026-01:18.35-721542(us) 78095 * Stop            (rrr_rpc_backend.cc:658): RrrRpcBackend::Stop: Closed 0 client connections
+20251026-01:18.35-721558(us) 78095 * Stop            (rrr_rpc_backend.cc:670): RrrRpcBackend stats: msg_size_resp_sent: 0 bytes, counter: 0, avg: -nan
+20251026-01:18.35-721592(us) 78095 * Stop            (rrr_rpc_backend.cc:673): RrrRpcBackend::Stop: END
+[STOP_SERVER] Server transport 1 stopped
+[STOP_SERVER] All server transports stopped
+[SHUTDOWN] stop_erpc_server() completed
+[SHUTDOWN] Calling second stop()
+20251026-01:18.35-721631(us) 78095 ! stop            (bench.cc:332):     stop all erpc clients. set stop=false
+[SHUTDOWN] Second stop() completed
+[SHUTDOWN] Calling do_txn_finish()
+[SHUTDOWN] do_txn_finish() completed
+--- n_commits per partition ---
+ par_id: 0, n_commits: 1465373
+ par_id: 1, n_commits: 1493860
+ par_id: 2, n_commits: 1519981
+ par_id: 3, n_commits: 1482490
+ par_id: 4, n_commits: 1513814
+ par_id: 5, n_commits: 1533951
+ par_id: 6, n_commits: 1481619
+--- benchmark statistics ---
+runtime: 30.2703 sec
+memory delta: 6715.06 MB
+n_commits: 10491088
+latency_numer_us: 205590056
+latency_numer_us_remote: 0
+memory delta rate: 221.837 MB/sec
+logical memory delta: 665.572 MB
+logical memory delta rate: 21.9876 MB/sec
+agg_nosync_throughput: 346582 ops/sec
+avg_nosync_per_core_throughput: 49511.7 ops/sec/core
+agg_throughput: 346581 ops/sec
+avg_per_core_throughput: 49511.5 ops/sec/core
+agg_persist_throughput: 346581 ops/sec
+avg_per_core_persist_throughput: 49511.5 ops/sec/core
+avg_latency: 0.0195966 ms
+avg_persist_latency: 0 ms
+agg_abort_rate: 72.8768 aborts/sec
+avg_per_core_abort_rate: 10.411 aborts/sec/core
+  NewOrder_local_commit_latency: 0.0200412 ms
+  NewOrder_local_abort_latency: 0.0406805 ms
+  NewOrder_local_abort_ratio: 8.28039e-05
+  Payment_local_commit_latency: 0.0060805 ms
+  Payment_local_abort_latency: 0.0227316 ms
+  Payment_local_abort_ratio: 5.53989e-06
+  Delivery_local_commit_latency: 0.0807087 ms
+  Delivery_local_abort_latency: -nan ms
+  Delivery_local_abort_ratio: 0
+  OrderStatus_local_commit_latency: 0.00652633 ms
+  OrderStatus_local_abort_latency: 0.02376 ms
+  OrderStatus_local_abort_ratio: 2.38323e-06
+  StockLevel_local_commit_latency: 0.12485 ms
+  StockLevel_local_abort_latency: 0.143461 ms
+  StockLevel_local_abort_ratio: 0.00426519
+  NewOrder_remote_ratio: 0 %
+  NewOrder_remote_abort_ratio: -nan %
+  NewOrder_remote_commit_latency: -nan ms
+  NewOrder_remote_abort_latency: -nan ms
+  Payment_remote_ratio: 0 %
+  Payment_remote_abort_ratio: -nan %
+  Payment_remote_commit_latency: -nan ms
+  Payment_remote_abort_latency: -nan ms
+--- system counters (for benchmark) ---
+--- perf counters (if enabled, for benchmark) ---
+TxnPayment:      tsc           
+  avg            16808.6       
+  total          75852587412   
+  count          4512721       
+TxnStockLevel:   tsc           
+  avg            349426        
+  total          146564078668  
+  count          419442        
+TxnNewOrder:     tsc           
+  avg            55865.3       
+  total          263795992768  
+  count          4721999       
+StockLevelOrderLineScan:tod-usec      
+  avg            20.4538       
+  total          8579193       
+  count          419442        
+StockLevelLoopJoinIter:tod-usec      
+  avg            0.451384      
+  total          37213107      
+  count          82442287      
+StockLevelLoopJoinGet:tod-usec      
+  avg            0.384161      
+  total          31671146      
+  count          82442287      
+TxnOrderStatus:  tsc           
+  avg            17993.1       
+  total          7549880884    
+  count          419599        
+DeliverNewOrderScan:tod-usec      
+  avg            0.518612      
+  total          2175749       
+  count          4195330       
+--- allocator stats ---
+[allocator] ncpus=7
+[allocator] cpu=0 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=1 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=2 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=3 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=4 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=5 fully_faulted?=0 remaining=155189248 bytes
+[allocator] cpu=6 fully_faulted?=0 remaining=155189248 bytes
+---------------------------------------
+--- system counters for n_comits ---
+[STOP_SERVER] Stopping 2 server transports
+[STOP_SERVER] Stopping server transport 0
+20251026-01:18.35-722691(us) 78095 * Stop            (rrr_rpc_backend.cc:585): RrrRpcBackend::Stop: Already stopped, returning
+[STOP_SERVER] Server transport 0 stopped
+[STOP_SERVER] Stopping server transport 1
+20251026-01:18.35-722724(us) 78095 * Stop            (rrr_rpc_backend.cc:585): RrrRpcBackend::Stop: Already stopped, returning
+[STOP_SERVER] Server transport 1 stopped
+[STOP_SERVER] All server transports stopped

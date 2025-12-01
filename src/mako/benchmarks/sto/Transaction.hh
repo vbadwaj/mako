@@ -674,6 +674,23 @@ public:
         return TThread::mode() == 1 || state_ < s_aborted;
     }
 
+    template <typename Func>
+    void for_each_item(Func&& fn) const {
+        TransItem* it = nullptr;
+        for (unsigned tidx = 0; tidx != tset_size_; ++tidx) {
+            it = (tidx % tset_chunk ? it + 1 : tset_[tidx / tset_chunk]);
+            fn(*it, tidx);
+        }
+    }
+
+    bool allows_duplicate_items() const {
+        return may_duplicate_items_;
+    }
+
+    bool has_preceding_duplicate_read(TransItem* item) const {
+        return preceding_duplicate_read(item);
+    }
+
     // opacity checking
     // These function will eventually help us track the commit TID when we
     // have no opacity, or for GV7 opacity.
@@ -1010,6 +1027,8 @@ public:
         return TransactionTid::increment_value;
     }
 };
+
+void PrintStoBatchValidationStats(std::ostream& os);
 
 class TestTransaction {
 public:

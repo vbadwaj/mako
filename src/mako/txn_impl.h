@@ -6,6 +6,10 @@
 #ifdef ENABLE_BATCH_VALIDATION
 #include "txn_occ_batch_validation.h"
 #include <cstdlib>
+#include <cctype>
+#endif
+#ifdef USE_PERF_CTRS
+#include "base_txn_btree.h"  // For performance probes in private_ namespace
 #endif
 
 // base definitions
@@ -240,6 +244,14 @@ transaction<Protocol, Traits>::commit(bool doThrow)
   try {
 #endif
 
+#ifdef ENABLE_BATCH_VALIDATION
+  static std::atomic<size_t> commit_count{0};
+  size_t commits = commit_count.fetch_add(1) + 1;
+  if (commits <= 10 || commits % 10000 == 0) {
+    std::cerr << "[COMMIT_DEBUG] commit() called #" << commits << std::endl;
+  }
+#endif
+
   PERF_DECL(
       static std::string probe0_name(
         std::string(__PRETTY_FUNCTION__) + std::string(":total:")));
@@ -256,6 +268,8 @@ transaction<Protocol, Traits>::commit(bool doThrow)
       throw transaction_abort_exception(reason);
     return false;
   }
+
+  this->mark_validated_in_batch(false);
 
   dbtuple_write_info_vec write_dbtuples;
   std::pair<bool, tid_t> commit_tid(false, 0);
@@ -343,36 +357,95 @@ transaction<Protocol, Traits>::commit(bool doThrow)
             std::string(__PRETTY_FUNCTION__) + std::string(":read_validation:")));
       ANON_REGION(probe3_name.c_str(), &transaction_base::g_txn_commit_probe3_cg);
 
+      // Flag to skip individual validation if batch validation already completed it
+      bool skip_individual_validation_flag = false;
+
+      // DEBUG: Always print to verify we reach this code path
+      static std::atomic<size_t> commit_call_count{0};
+      size_t call_num = commit_call_count.fetch_add(1) + 1;
+      if (call_num <= 3 || call_num % 10000 == 0) {
+        std::cerr << "[DEBUG_COMMIT] commit() called #" << call_num << std::endl;
+      }
+
+      bool batch_validation_enabled = false;
+      
 #ifdef ENABLE_BATCH_VALIDATION
-      // Try to use batch validation if enabled
-      static bool batch_validation_enabled = []() {
-        const char* env = std::getenv("MAKO_ENABLE_BATCH_VALIDATION");
-        bool enabled = env && (std::string(env) == "1" || std::string(env) == "true");
-        if (enabled) {
-          // Initialize batch validator on first use
-          auto& validator = GetBatchValidator<Protocol, Traits>();
-          static std::atomic<bool> init_done{false};
-          bool expected = false;
-          if (init_done.compare_exchange_strong(expected, true)) {
-            size_t batch_size = 32;
-            size_t max_wait_us = 1000;
-            const char* batch_size_env = std::getenv("MAKO_BATCH_VALIDATION_SIZE");
-            if (batch_size_env) {
-              batch_size = std::stoul(batch_size_env);
-            }
-            const char* max_wait_env = std::getenv("MAKO_BATCH_VALIDATION_MAX_WAIT_US");
-            if (max_wait_env) {
-              max_wait_us = std::stoul(max_wait_env);
-            }
-            validator.Init(batch_size, max_wait_us);
-          }
+      // DEBUG: Verify macro is defined
+      if (call_num <= 3) {
+        std::cerr << "[DEBUG_COMMIT] ENABLE_BATCH_VALIDATION is DEFINED" << std::endl;
+      }
+      // Check if batch validation is enabled (check env var each time, not just once)
+      const char* batch_validation_env = std::getenv("MAKO_ENABLE_BATCH_VALIDATION");
+      const char* legacy_batch_env = std::getenv("BATCH_VALIDATION");
+
+      auto normalize_env = [](const char* value) -> std::string {
+        if (!value) {
+          return {};
         }
-        return enabled;
-      }();
+        std::string lower(value);
+        for (auto &c : lower) {
+          c = std::tolower(c);
+        }
+        return lower;
+      };
+
+      auto env_value = normalize_env(batch_validation_env);
+      auto legacy_env_value = normalize_env(legacy_batch_env);
+
+      if (!batch_validation_env && legacy_batch_env) {
+        env_value = legacy_env_value;
+        batch_validation_env = legacy_batch_env;
+      }
+
+      if (!env_value.empty()) {
+        batch_validation_enabled =
+            (env_value == "1" || env_value == "true" || env_value == "yes");
+      } else {
+        batch_validation_enabled = false;
+      }
+
+      if (call_num <= 20 || call_num % 10000 == 0) {
+        std::cerr << "[BATCH_VALIDATION_ENV]"
+                  << " call=" << call_num
+                  << " MAKO_ENABLE_BATCH_VALIDATION="
+                  << (std::getenv("MAKO_ENABLE_BATCH_VALIDATION") ? std::getenv("MAKO_ENABLE_BATCH_VALIDATION") : "NULL")
+                  << " BATCH_VALIDATION="
+                  << (std::getenv("BATCH_VALIDATION") ? std::getenv("BATCH_VALIDATION") : "NULL")
+                  << " enabled=" << batch_validation_enabled
+                  << std::endl;
+      }
       
       // Use batch validation for parallel validation
-      bool skip_individual_validation_flag = false;
       if (batch_validation_enabled) {
+        static std::atomic<bool> init_done{false};
+        static std::atomic<size_t> commit_attempts{0};
+        size_t attempts = commit_attempts.fetch_add(1) + 1;
+        
+        bool expected = false;
+        if (init_done.compare_exchange_strong(expected, true)) {
+          std::cerr << "[BATCH_VALIDATION] Initializing batch validator..." << std::endl;
+          auto& validator = GetBatchValidator<Protocol, Traits>();
+          size_t batch_size = 32;
+          size_t max_wait_us = 1000;
+          const char* batch_size_env = std::getenv("MAKO_BATCH_VALIDATION_SIZE");
+          if (batch_size_env) {
+            batch_size = std::stoul(batch_size_env);
+          }
+          const char* max_wait_env = std::getenv("MAKO_BATCH_VALIDATION_MAX_WAIT_US");
+          if (max_wait_env) {
+            max_wait_us = std::stoul(max_wait_env);
+          }
+          validator.Init(batch_size, max_wait_us);
+          std::cerr << "[BATCH_VALIDATION] Batch validator initialized: size=" 
+                    << batch_size << ", max_wait_us=" << max_wait_us << std::endl;
+        }
+        
+        // Debug: Print every 1000th commit attempt
+        if (attempts <= 10 || attempts % 1000 == 0) {
+          std::cerr << "[COMMIT_DEBUG] commit() attempt #" << attempts 
+                    << ", is_snapshot()=" << this->is_snapshot() << std::endl;
+        }
+        
         auto& validator = GetBatchValidator<Protocol, Traits>();
         // Add to batch - blocks until batch is validated in parallel
         bool validation_passed = validator.AddToBatch(this);
@@ -380,20 +453,41 @@ transaction<Protocol, Traits>::commit(bool doThrow)
         // Check if validation completed in batch
         if (state == TXN_ABRT) {
           // Validation failed in batch - abort
+          if (attempts <= 10) {
+            std::cerr << "[COMMIT_DEBUG] Transaction aborted in batch validation" << std::endl;
+          }
           goto do_abort;
         }
         
         if (validation_passed) {
           // Validation passed in batch - skip individual validation and proceed
+          if (attempts <= 10) {
+            std::cerr << "[COMMIT_DEBUG] Batch validation passed, skipping individual validation" << std::endl;
+          }
           skip_individual_validation_flag = true;
+        } else {
+          // Batch validation didn't complete yet or returned false
+          if (attempts <= 10) {
+            std::cerr << "[COMMIT_DEBUG] Batch validation returned false, falling through to individual validation" << std::endl;
+          }
         }
-        // Batch not yet full or validation in progress - continue with individual validation
-        // (fallback for edge cases)
+      } else {
+        // Debug why batch validation is disabled
+        static std::atomic<size_t> disabled_count{0};
+        size_t disabled = disabled_count.fetch_add(1) + 1;
+        if (disabled <= 5) {
+          std::cerr << "[BATCH_VALIDATION] Batch validation disabled. env=" 
+                    << (batch_validation_env ? batch_validation_env : "NULL") << std::endl;
+        }
       }
 #endif
 
       // check the nodes we actually read are still the latest version
       if (!skip_individual_validation_flag && !read_set.empty()) {
+        PERF_DECL(
+            static std::string probe_read_set_validation_name(
+              std::string(__PRETTY_FUNCTION__) + std::string(":read_set_validation:")));
+        ANON_REGION(probe_read_set_validation_name.c_str(), &transaction_base::g_txn_read_set_validation_cg);
         typename read_set_map::iterator it     = read_set.begin();
         typename read_set_map::iterator it_end = read_set.end();
         for (; it != it_end; ++it) {
@@ -422,6 +516,10 @@ transaction<Protocol, Traits>::commit(bool doThrow)
 
       // check btree versions have not changed
       if (!skip_individual_validation_flag && !absent_set.empty()) {
+        PERF_DECL(
+            static std::string probe_absent_set_validation_name(
+              std::string(__PRETTY_FUNCTION__) + std::string(":absent_set_validation:")));
+        ANON_REGION(probe_absent_set_validation_name.c_str(), &transaction_base::g_txn_absent_set_validation_cg);
         typename absent_set_map::iterator it     = absent_set.begin();
         typename absent_set_map::iterator it_end = absent_set.end();
         for (; it != it_end; ++it) {

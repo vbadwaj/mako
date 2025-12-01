@@ -1,0 +1,309 @@
+20251029-20:28.30-436327(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.30-436387(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.30-436406(us) 38721 * handle_new_config_format (dbtest.cc:131):    Site local_s0: shard=0, replica_idx=0, is_leader=1, cluster=localhost
+allocator::Initialize()
+  hugepgsize: 2097152
+  use MADV_WILLNEED: 1
+  mmap() region [0x72a36b800000, 0x72a3aba00000)
+cpu0 owns [0x72a36b800000, 0x72a373800000)
+cpu1 owns [0x72a373800000, 0x72a37b800000)
+cpu2 owns [0x72a37b800000, 0x72a383800000)
+cpu3 owns [0x72a383800000, 0x72a38b800000)
+cpu4 owns [0x72a38b800000, 0x72a393800000)
+cpu5 owns [0x72a393800000, 0x72a39b800000)
+cpu6 owns [0x72a39b800000, 0x72a3a3800000)
+cpu7 owns [0x72a3a3800000, 0x72a3ab800000)
+Database Benchmark:
+  pid: 38721
+settings:
+  num-cpus    : 8
+  num-threads : 8
+  shardIndex  : 0
+  paxos_proc_name  : localhost
+  nshards     : 1
+  is_micro    : 0
+  is_replicated : 0
+  var-encode  : yes
+  allocator   : jemalloc
+system properties:
+  tuple_prefetch          : no
+  btree_node_prefetch     : yes
+tpcc settings:
+  cross_partition_transactions : 1
+  read_only_snapshots          : 1
+  partition_locks              : 0
+  separate_tree_per_partition  : 1
+  new_order_remote_item_pct    : 1
+  new_order_fast_id_gen        : 1
+  uniform_item_dist            : 0
+  order_status_scan_hack       : 0
+  workload_mix                 : [45, 43, 4, 4, 4]
+new table is createded with name: customer_0, table-id: 1, on shard-server id:0
+new table is createded with name: customer_1, table-id: 2, on shard-server id:0
+new table is createded with name: customer_2, table-id: 3, on shard-server id:0
+new table is createded with name: customer_3, table-id: 4, on shard-server id:0
+new table is createded with name: customer_4, table-id: 5, on shard-server id:0
+new table is createded with name: customer_5, table-id: 6, on shard-server id:0
+new table is createded with name: customer_6, table-id: 7, on shard-server id:0
+new table is createded with name: customer_7, table-id: 8, on shard-server id:0
+new table is createded with name: customer_name_idx_0, table-id: 9, on shard-server id:0
+new table is createded with name: customer_name_idx_1, table-id: 10, on shard-server id:0
+new table is createded with name: customer_name_idx_2, table-id: 11, on shard-server id:0
+new table is createded with name: customer_name_idx_3, table-id: 12, on shard-server id:0
+new table is createded with name: customer_name_idx_4, table-id: 13, on shard-server id:0
+new table is createded with name: customer_name_idx_5, table-id: 14, on shard-server id:0
+new table is createded with name: customer_name_idx_6, table-id: 15, on shard-server id:0
+new table is createded with name: customer_name_idx_7, table-id: 16, on shard-server id:0
+new table is createded with name: district_0, table-id: 17, on shard-server id:0
+new table is createded with name: district_1, table-id: 18, on shard-server id:0
+new table is createded with name: district_2, table-id: 19, on shard-server id:0
+new table is createded with name: district_3, table-id: 20, on shard-server id:0
+new table is createded with name: district_4, table-id: 21, on shard-server id:0
+new table is createded with name: district_5, table-id: 22, on shard-server id:0
+new table is createded with name: district_6, table-id: 23, on shard-server id:0
+new table is createded with name: district_7, table-id: 24, on shard-server id:0
+new table is createded with name: history_0, table-id: 25, on shard-server id:0
+new table is createded with name: history_1, table-id: 26, on shard-server id:0
+new table is createded with name: history_2, table-id: 27, on shard-server id:0
+new table is createded with name: history_3, table-id: 28, on shard-server id:0
+new table is createded with name: history_4, table-id: 29, on shard-server id:0
+new table is createded with name: history_5, table-id: 30, on shard-server id:0
+new table is createded with name: history_6, table-id: 31, on shard-server id:0
+new table is createded with name: history_7, table-id: 32, on shard-server id:0
+new table is createded with name: new_order_0, table-id: 33, on shard-server id:0
+new table is createded with name: new_order_1, table-id: 34, on shard-server id:0
+new table is createded with name: new_order_2, table-id: 35, on shard-server id:0
+new table is createded with name: new_order_3, table-id: 36, on shard-server id:0
+new table is createded with name: new_order_4, table-id: 37, on shard-server id:0
+new table is createded with name: new_order_5, table-id: 38, on shard-server id:0
+new table is createded with name: new_order_6, table-id: 39, on shard-server id:0
+new table is createded with name: new_order_7, table-id: 40, on shard-server id:0
+new table is createded with name: oorder_0, table-id: 41, on shard-server id:0
+new table is createded with name: oorder_1, table-id: 42, on shard-server id:0
+new table is createded with name: oorder_2, table-id: 43, on shard-server id:0
+new table is createded with name: oorder_3, table-id: 44, on shard-server id:0
+new table is createded with name: oorder_4, table-id: 45, on shard-server id:0
+new table is createded with name: oorder_5, table-id: 46, on shard-server id:0
+new table is createded with name: oorder_6, table-id: 47, on shard-server id:0
+new table is createded with name: oorder_7, table-id: 48, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_0, table-id: 49, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_1, table-id: 50, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_2, table-id: 51, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_3, table-id: 52, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_4, table-id: 53, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_5, table-id: 54, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_6, table-id: 55, on shard-server id:0
+new table is createded with name: oorder_c_id_idx_7, table-id: 56, on shard-server id:0
+new table is createded with name: order_line_0, table-id: 57, on shard-server id:0
+new table is createded with name: order_line_1, table-id: 58, on shard-server id:0
+new table is createded with name: order_line_2, table-id: 59, on shard-server id:0
+new table is createded with name: order_line_3, table-id: 60, on shard-server id:0
+new table is createded with name: order_line_4, table-id: 61, on shard-server id:0
+new table is createded with name: order_line_5, table-id: 62, on shard-server id:0
+new table is createded with name: order_line_6, table-id: 63, on shard-server id:0
+new table is createded with name: order_line_7, table-id: 64, on shard-server id:0
+new table is createded with name: stock_0, table-id: 65, on shard-server id:0
+new table is createded with name: stock_1, table-id: 66, on shard-server id:0
+new table is createded with name: stock_2, table-id: 67, on shard-server id:0
+new table is createded with name: stock_3, table-id: 68, on shard-server id:0
+new table is createded with name: stock_4, table-id: 69, on shard-server id:0
+new table is createded with name: stock_5, table-id: 70, on shard-server id:0
+new table is createded with name: stock_6, table-id: 71, on shard-server id:0
+new table is createded with name: stock_7, table-id: 72, on shard-server id:0
+new table is createded with name: stock_data_0, table-id: 73, on shard-server id:0
+new table is createded with name: stock_data_1, table-id: 74, on shard-server id:0
+new table is createded with name: stock_data_2, table-id: 75, on shard-server id:0
+new table is createded with name: stock_data_3, table-id: 76, on shard-server id:0
+new table is createded with name: stock_data_4, table-id: 77, on shard-server id:0
+new table is createded with name: stock_data_5, table-id: 78, on shard-server id:0
+new table is createded with name: stock_data_6, table-id: 79, on shard-server id:0
+new table is createded with name: stock_data_7, table-id: 80, on shard-server id:0
+new table is createded with name: warehouse_0, table-id: 81, on shard-server id:0
+new table is createded with name: warehouse_1, table-id: 82, on shard-server id:0
+new table is createded with name: warehouse_2, table-id: 83, on shard-server id:0
+new table is createded with name: warehouse_3, table-id: 84, on shard-server id:0
+new table is createded with name: warehouse_4, table-id: 85, on shard-server id:0
+new table is createded with name: warehouse_5, table-id: 86, on shard-server id:0
+new table is createded with name: warehouse_6, table-id: 87, on shard-server id:0
+new table is createded with name: warehouse_7, table-id: 88, on shard-server id:0
+new table is createded with name: item, table-id: 89, on shard-server id:0
+20251029-20:28.30-437458(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.30-437505(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.30-437559(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+[TRANSPORT] Using default: rrr
+20251029-20:28.30-437624(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.30-437784(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31013 (listening on 0.0.0.0:31013)
+20251029-20:28.30-437809(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31013
+20251029-20:28.30-437820(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31014 (listening on 0.0.0.0:31014)
+20251029-20:28.30-437843(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31014
+20251029-20:28.30-437853(us) 38721 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+20251029-20:28.30-437884(us) 38721 * RunEventLoop    (rrr_rpc_backend.cc:508): RrrRpcBackend::RunEventLoop: Starting event loop
+20251029-20:28.30-439485(us) 38721 ! run             (bench.cc:357):     # of loaders size:6
+start worker:1051
+[INFO] finished loading warehouse
+[INFO]   * average warehouse record length: 97 bytes
+PinToWarehouseId(): coreid=2 pinned to whse=1 (partid=0)
+PinToWarehouseId(): coreid=3 pinned to whse=1 (partid=0)
+num batches: 30
+PinToWarehouseId(): coreid=4 pinned to whse=1 (partid=0)
+PinToWarehouseId(): coreid=3 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=3 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=3 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=3 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=3 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=3 pinned to whse=7 (partid=6)
+PinToWarehouseId(): coreid=3 pinned to whse=8 (partid=7)
+PinToWarehouseId(): coreid=5 pinned to whse=1 (partid=0)
+[INFO] finished loading district
+[INFO]   * average district record length: 99 bytes
+PinToWarehouseId(): coreid=5 pinned to whse=2 (partid=1)
+[INFO] finished loading item
+[INFO]   * average item record length: 84.1739 bytes
+PinToWarehouseId(): coreid=5 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=4 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=5 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=5 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=4 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=5 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=5 pinned to whse=7 (partid=6)
+PinToWarehouseId(): coreid=2 pinned to whse=2 (partid=1)
+PinToWarehouseId(): coreid=4 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=5 pinned to whse=8 (partid=7)
+[INFO] finished loading order
+[INFO]   * average order_line record length: 11.2675 bytes
+[INFO]   * average oorder record length: 7.9102 bytes
+[INFO]   * average new_order record length: 12 bytes
+PinToWarehouseId(): coreid=4 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=4 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=2 pinned to whse=3 (partid=2)
+PinToWarehouseId(): coreid=4 pinned to whse=7 (partid=6)
+PinToWarehouseId(): coreid=4 pinned to whse=8 (partid=7)
+[INFO] finished loading customer
+[INFO]   * average customer record length: 153.966 bytes 
+PinToWarehouseId(): coreid=2 pinned to whse=4 (partid=3)
+PinToWarehouseId(): coreid=2 pinned to whse=5 (partid=4)
+PinToWarehouseId(): coreid=2 pinned to whse=6 (partid=5)
+PinToWarehouseId(): coreid=2 pinned to whse=7 (partid=6)
+PinToWarehouseId(): coreid=2 pinned to whse=8 (partid=7)
+[INFO] finished loading stock
+[INFO]   * average stock record length: 8 bytes
+timed region dataloading took 5790.68 ms
+DB size: 890.383 MB
+[0, 0, 0] txns persisted in loading phase
+20251029-20:28.36-230236(us) 38721 ! run             (bench.cc:410):     # of nthreads:8
+starting benchmark...
+--------------Finish loading data and wait for others completing load phase ------------
+tpcc: worker id 8 => warehouses [1, 2)
+tpcc: worker id 9 => warehouses [2, 3)
+tpcc: worker id 10 => warehouses [3, 4)
+tpcc: worker id 11 => warehouses [4, 5)
+tpcc: worker id 12 => warehouses [5, 6)
+tpcc: worker id 13 => warehouses [6, 7)
+tpcc: worker id 14 => warehouses [7, 8)
+tpcc: worker id 15 => warehouses [8, 9)
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+No JEMALLOC_NO_RENAME
+20251029-20:28.36-233763(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-233829(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+No JEMALLOC_NO_RENAME
+20251029-20:28.36-233862(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-233898(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-233931(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-233968(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234000(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234023(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234050(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234073(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234091(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234126(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234155(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-234188(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-234263(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234284(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234309(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234328(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234342(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234375(us) 38721 [TRANSPORT] Using default: rrr
+* No JEMALLOC_NO_RENAME
+ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-234507(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31003 (listening on 0.0.0.0:31003)
+20251029-20:28.36-234543(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31000 (listening on 0.0.0.0:31000)
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-234557(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31000
+20251029-20:28.36-234581(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234639(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-234736(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31001 (listening on 0.0.0.0:31001)
+20251029-20:28.36-234767(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31003
+20251029-20:28.36-234814(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-234846(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-234954(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31005 (listening on 0.0.0.0:31005)
+20251029-20:28.36-235050(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31002 (listening on 0.0.0.0:31002)
+20251029-20:28.36-235064(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31002
+20251029-20:28.36-235156(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31005
+20251029-20:28.36-235272(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235299(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31001
+20251029-20:28.36-235317(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235346(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235384(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235441(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235451(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235487(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235504(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235541(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31004 (listening on 0.0.0.0:31004)
+20251029-20:28.36-235570(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31004
+20251029-20:28.36-235595(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235635(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235669(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235727(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235793(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235829(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-235892(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-235918(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-236052(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31007 (listening on 0.0.0.0:31007)
+20251029-20:28.36-236076(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31007
+20251029-20:28.36-236240(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-236266(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-236356(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-236385(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-236407(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+[TRANSPORT] Using default: rrr
+20251029-20:28.36-236433(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-236514(us) 38721 * Initialize      (rrr_rpc_backend.cc:85): RrrRpcBackend initialized on 127.0.0.1:31006 (listening on 0.0.0.0:31006)
+20251029-20:28.36-236524(us) 38721 * FastTransport   (fasttransport.cc:116): FastTransport initialized with rrr/rpc backend on 127.0.0.1:31006
+20251029-20:28.36-236671(us) 38721 * ParseNewFormat  (configuration.cc:99): Using new configuration format
+20251029-20:28.36-236695(us) 38721 * ParseNewFormat  (configuration.cc:159): Loaded 1 sites in 1 shards
+20251029-20:28.36-237955(us) 38721 ! run             (bench.cc:461):     start the running time, runTime:30
+20251029-20:28.36-238122(us) 38721 ! run             (bench.cc:473):     runtime time left:30000 ms, bool:1
+20251029-20:28.37-249906(us) 38721 ! run             (bench.cc:473):     runtime time left:29000 ms, bool:1
+20251029-20:28.38-260743(us) 38721 ! run             (bench.cc:473):     runtime time left:28000 ms, bool:1
+20251029-20:28.39-268704(us) 38721 ! run             (bench.cc:473):     runtime time left:27000 ms, bool:1
+20251029-20:28.40-275849(us) 38721 ! run             (bench.cc:473):     runtime time left:26000 ms, bool:1
+20251029-20:28.41-283616(us) 38721 ! run             (bench.cc:473):     runtime time left:25000 ms, bool:1
+20251029-20:28.42-292954(us) 38721 ! run             (bench.cc:473):     runtime time left:24000 ms, bool:1
+20251029-20:28.43-300686(us) 38721 ! run             (bench.cc:473):     runtime time left:23000 ms, bool:1
+20251029-20:28.44-309515(us) 38721 ! run             (bench.cc:473):     runtime time left:22000 ms, bool:1
+20251029-20:28.45-317250(us) 38721 ! run             (bench.cc:473):     runtime time left:21000 ms, bool:1
+20251029-20:28.46-324407(us) 38721 ! run             (bench.cc:473):     runtime time left:20000 ms, bool:1
+20251029-20:28.47-331132(us) 38721 ! run             (bench.cc:473):     runtime time left:19000 ms, bool:1
+20251029-20:28.48-337308(us) 38721 ! run             (bench.cc:473):     runtime time left:18000 ms, bool:1
+20251029-20:28.49-344452(us) 38721 ! run             (bench.cc:473):     runtime time left:17000 ms, bool:1
+20251029-20:28.50-355119(us) 38721 ! run             (bench.cc:473):     runtime time left:16000 ms, bool:1
+20251029-20:28.51-362860(us) 38721 ! run             (bench.cc:473):     runtime time left:15000 ms, bool:1
+20251029-20:28.52-373695(us) 38721 ! run             (bench.cc:473):     runtime time left:14000 ms, bool:1
+20251029-20:28.53-383923(us) 38721 ! run             (bench.cc:473):     runtime time left:13000 ms, bool:1
+20251029-20:28.54-391183(us) 38721 ! run             (bench.cc:473):     runtime time left:12000 ms, bool:1
+20251029-20:28.55-400241(us) 38721 ! run             (bench.cc:473):     runtime time left:11000 ms, bool:1
+20251029-20:28.56-406773(us) 38721 ! run             (bench.cc:473):     runtime time left:10000 ms, bool:1
+20251029-20:28.57-415761(us) 38721 ! run             (bench.cc:473):     runtime time left:9000 ms, bool:1
+20251029-20:28.58-423385(us) 38721 ! run             (bench.cc:473):     runtime time left:8000 ms, bool:1
+20251029-20:28.59-435442(us) 38721 ! run             (bench.cc:473):     runtime time left:7000 ms, bool:1

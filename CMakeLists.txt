@@ -203,6 +203,7 @@ option(SIMULATE_ONE_SHARD_PER_THREAD "Simulate one shard per thread" OFF)
 option(TRACKING_ROLLBACK "Enable rollback tracking" OFF)
 option(ENABLE_BATCH_VALIDATION "Enable parallel batch validation" OFF)
 option(ENABLE_OPENMP "Enable OpenMP for parallel validation" OFF)
+option(ENABLE_PERF_CTRS "Enable performance counters (scopedperf)" ON)
 
 # Masstree configuration
 set(MASSTREE_CONFIG "CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} --enable-max-key-len=1024")
@@ -343,6 +344,10 @@ if(ENABLE_OPENMP)
   else()
     message(WARNING "OpenMP requested but not found. Parallel validation will use std::thread.")
   endif()
+endif()
+if(ENABLE_PERF_CTRS)
+  list(APPEND CXXFLAGS -DUSE_PERF_CTRS)
+  message(STATUS "Performance counters (scopedperf) enabled")
 endif()
 list(APPEND CXXFLAGS
   -include ${W}/masstree/config.h

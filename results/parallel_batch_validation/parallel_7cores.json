@@ -1,0 +1,25 @@
+{
+  "core_count": 7,
+  "duration_seconds": 30,
+  "actual_duration": 37.088211158,
+  "cpu_frequency_khz": "unknown",
+  "throughput": {
+    "txns_per_second": 346582,
+    "committed": 10491088,
+    "aborted": 2206
+  },
+  "configuration": {
+    "batch_validation": true,
+    "batch_size": 32,
+    "max_wait_us": 1000,
+    "workload": "tpcc",
+    "scale_factor": 7
+  },
+  "batch_validation_stats": {
+    "batch_validations": ,
+    "batch_validated_txns": ,
+    "batch_aborted_txns": ,
+    "avg_batch_size": 
+  },
+  "output_file": "results/parallel_batch_validation/parallel_7cores.log"
+}

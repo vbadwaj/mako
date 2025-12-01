@@ -2,12 +2,19 @@
 #include <typeinfo>
 #include <atomic>
 #include <array>
+#include <chrono>
+#include <cctype>
+#include <condition_variable>
 #include <iostream>
+#include <memory>
+#include <mutex>
+#include <vector>
 #include "MassTrans.hh"
 #include "deptran/s_main.h"
 #include "benchmarks/sto/sync_util.hh"
 #include "lib/common.h"
 #include "benchmarks/benchmark_config.h"
+#include "batch_validation_stats.h"
 
 #ifndef MAX
 #define MAX(a,b) ((a)>(b)?(a):(b))
@@ -17,6 +24,260 @@ std::function<int()> callback_ = nullptr;
 void register_sync_util(std::function<int()> cb) {
     callback_ = cb;
 }
+
+#ifdef ENABLE_BATCH_VALIDATION
+namespace {
+
+struct StoBatchValidationStats {
+    std::atomic<uint64_t> commit_attempts{0};
+    std::atomic<uint64_t> batch_requests{0};
+    std::atomic<uint64_t> batches_used{0};
+    std::atomic<uint64_t> num_batches{0};
+    std::atomic<uint64_t> num_txns_in_batches{0};
+    std::atomic<uint64_t> num_batch_committed{0};
+    std::atomic<uint64_t> num_batch_aborted{0};
+    std::atomic<uint64_t> env_logs{0};
+    bool enabled{false};
+    size_t batch_size{32};
+    size_t max_wait_us{1000};
+
+    void log_env_once(const char* env_value, const char* legacy_value) {
+        auto logged = env_logs.fetch_add(1);
+        if (logged == 0) {
+            std::cerr << "[STO_BATCH_VALIDATION] MAKO_ENABLE_BATCH_VALIDATION="
+                      << (env_value ? env_value : "NULL")
+                      << " BATCH_VALIDATION="
+                      << (legacy_value ? legacy_value : "NULL")
+                      << " enabled=" << (enabled ? "true" : "false")
+                      << " batch_size=" << batch_size
+                      << " max_wait_us=" << max_wait_us
+                      << std::endl;
+        }
+    }
+};
+
+StoBatchValidationStats& sto_batch_stats() {
+    static StoBatchValidationStats stats;
+    return stats;
+}
+
+bool env_truthy(const char* value) {
+    if (!value) return false;
+    std::string lower(value);
+    for (auto& c : lower) c = static_cast<char>(std::tolower(c));
+    return lower == "1" || lower == "true" || lower == "yes" || lower == "on";
+}
+
+void trace_batch_attempt(uint64_t attempt, const char* reason) {
+    if (attempt <= 10 || attempt % 10000 == 0) {
+        std::cerr << "[STO_BATCH_ATTEMPT] attempt=" << attempt
+                  << " reason=" << reason << std::endl;
+    }
+}
+
+class StoBatchValidator {
+public:
+    struct Result {
+        bool validated{false};
+        bool passed{false};
+    };
+
+    void Configure(size_t batch_size, size_t max_wait_us) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        batch_size_ = batch_size;
+        max_wait_us_ = max_wait_us;
+        enabled_ = true;
+        pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
+    }
+
+    Result Enqueue(Transaction* txn) {
+        Result result;
+        if (!enabled_) {
+            return result;
+        }
+
+        auto& stats = sto_batch_stats();
+        stats.batch_requests.fetch_add(1, std::memory_order_relaxed);
+
+        std::shared_ptr<ValidationBatch> batch;
+        size_t position = 0;
+        bool trigger_validation = false;
+        auto wait_start = std::chrono::high_resolution_clock::now();
+
+        {
+            std::unique_lock<std::mutex> lock(mutex_);
+            if (!pending_batch_) {
+                pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
+            }
+            batch = pending_batch_;
+            position = batch->txns.size();
+            batch->txns.push_back(txn);
+
+            while (batch.get() == pending_batch_.get() &&
+                   batch->txns.size() < batch_size_) {
+                auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
+                    std::chrono::high_resolution_clock::now() - wait_start).count();
+                if (elapsed >= static_cast<long long>(max_wait_us_)) {
+                    trigger_validation = true;
+                    pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
+                    batch_cv_.notify_all();
+                    break;
+                }
+                auto remaining = static_cast<long long>(max_wait_us_) - elapsed;
+                batch_cv_.wait_for(lock,
+                                   std::chrono::microseconds(remaining),
+                                   [&batch, this] {
+                                       return batch.get() != pending_batch_.get();
+                                   });
+            }
+
+            if (batch.get() == pending_batch_.get() &&
+                batch->txns.size() >= batch_size_) {
+                trigger_validation = true;
+                pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
+                batch_cv_.notify_all();
+            }
+        }
+
+        if (trigger_validation) {
+            ValidateBatch(batch);
+        }
+
+        {
+            std::unique_lock<std::mutex> wait_lock(batch->mutex);
+            batch->cv.wait(wait_lock, [&batch] {
+                return batch->validation_complete.load(std::memory_order_acquire);
+            });
+        }
+
+        if (position >= batch->results.size()) {
+            result.validated = true;
+            result.passed = false;
+            return result;
+        }
+
+        result.validated = true;
+        result.passed = batch->results[position];
+        return result;
+    }
+
+    bool enabled() const {
+        return enabled_;
+    }
+
+private:
+    struct ValidationBatch {
+        explicit ValidationBatch(size_t capacity)
+            : validation_complete(false) {
+            txns.reserve(capacity);
+        }
+
+        std::vector<Transaction*> txns;
+        std::vector<bool> results;
+        std::atomic<bool> validation_complete;
+        std::mutex mutex;
+        std::condition_variable cv;
+    };
+
+    bool ValidateTransaction(Transaction* txn) const {
+        bool ok = true;
+        txn->for_each_item([&](TransItem& item, unsigned) {
+            if (!ok) {
+                return;
+            }
+            bool is_remote = item.owner()->get_is_remote();
+            if (!is_remote && item.has_read()) {
+                if (!item.owner()->check(item, *txn) &&
+                    (!txn->allows_duplicate_items() || !txn->has_preceding_duplicate_read(&item))) {
+                    ok = false;
+                }
+            } else if (item.has_predicate()) {
+                if (!item.owner()->check_predicate(item, *txn, true)) {
+                    ok = false;
+                }
+            }
+        });
+        return ok;
+    }
+
+    void ValidateBatch(const std::shared_ptr<ValidationBatch>& batch) {
+        const size_t total = batch->txns.size();
+        if (total == 0) {
+            std::lock_guard<std::mutex> guard(batch->mutex);
+            batch->validation_complete.store(true, std::memory_order_release);
+            batch->cv.notify_all();
+            return;
+        }
+
+        batch->results.assign(total, false);
+
+        for (size_t i = 0; i < total; ++i) {
+            batch->results[i] = ValidateTransaction(batch->txns[i]);
+        }
+
+        size_t passed = 0;
+        for (bool ok : batch->results) {
+            if (ok) {
+                ++passed;
+            }
+        }
+        size_t aborted = total - passed;
+
+        auto& global_stats = mako::GetBatchValidationStats();
+        global_stats.num_batches.fetch_add(1, std::memory_order_relaxed);
+        global_stats.num_txns_in_batches.fetch_add(total, std::memory_order_relaxed);
+        global_stats.num_batch_committed.fetch_add(passed, std::memory_order_relaxed);
+        global_stats.num_batch_aborted.fetch_add(aborted, std::memory_order_relaxed);
+
+        auto& sto_stats = sto_batch_stats();
+        sto_stats.num_batches.fetch_add(1, std::memory_order_relaxed);
+        sto_stats.num_txns_in_batches.fetch_add(total, std::memory_order_relaxed);
+        sto_stats.num_batch_committed.fetch_add(passed, std::memory_order_relaxed);
+        sto_stats.num_batch_aborted.fetch_add(aborted, std::memory_order_relaxed);
+        sto_stats.batches_used.fetch_add(1, std::memory_order_relaxed);
+
+        {
+            std::lock_guard<std::mutex> guard(batch->mutex);
+            batch->validation_complete.store(true, std::memory_order_release);
+        }
+        batch->cv.notify_all();
+    }
+
+    size_t batch_size_{32};
+    size_t max_wait_us_{1000};
+    bool enabled_{false};
+    std::mutex mutex_;
+    std::condition_variable batch_cv_;
+    std::shared_ptr<ValidationBatch> pending_batch_;
+};
+
+StoBatchValidator& GetStoBatchValidator() {
+    static StoBatchValidator validator;
+    return validator;
+}
+
+void configure_batch_validation_from_env() {
+    static std::once_flag once;
+    std::call_once(once, []() {
+        auto& stats = sto_batch_stats();
+        const char* env_value = std::getenv("MAKO_ENABLE_BATCH_VALIDATION");
+        const char* legacy_env_value = std::getenv("BATCH_VALIDATION");
+        stats.enabled = env_truthy(env_value) || env_truthy(legacy_env_value);
+        if (const char* size_env = std::getenv("MAKO_BATCH_VALIDATION_SIZE")) {
+            stats.batch_size = std::strtoul(size_env, nullptr, 10);
+        }
+        if (const char* wait_env = std::getenv("MAKO_BATCH_VALIDATION_MAX_WAIT_US")) {
+            stats.max_wait_us = std::strtoul(wait_env, nullptr, 10);
+        }
+        stats.log_env_once(env_value, legacy_env_value);
+        if (stats.enabled) {
+            GetStoBatchValidator().Configure(stats.batch_size, stats.max_wait_us);
+        }
+    });
+}
+
+} // namespace
+#endif
 
 Transaction::testing_type Transaction::testing;
 threadinfo_t Transaction::tinfo[MAX_THREADS];
@@ -390,21 +651,41 @@ bool Transaction::try_commit(bool no_paxos) {
     }
 #endif
 
-    state_ = s_committing;
-
     unsigned writeset[tset_size_];
     unsigned nwriteset = 0;
-    // Single watermark timestamp instead of vector
     uint32_t watermarkTimestamp = 0;
-    writeset[0] = tset_size_;
-
-    //phase1
     TransItem* it = nullptr;
-
     std::vector<int> remote_table_id_batch;
     std::vector<std::string> key_batch;
     std::vector<std::string> value_batch;
+    int ret = 0;
 
+#ifdef ENABLE_BATCH_VALIDATION
+    bool skip_local_validation = false;
+    configure_batch_validation_from_env();
+    auto& batch_stats = sto_batch_stats();
+    uint64_t attempt = batch_stats.commit_attempts.fetch_add(1, std::memory_order_relaxed) + 1;
+    bool batch_enabled = batch_stats.enabled && GetStoBatchValidator().enabled();
+    trace_batch_attempt(attempt, batch_enabled ? "batch-enabled" : "disabled");
+    if (batch_enabled) {
+        auto result = GetStoBatchValidator().Enqueue(this);
+        if (result.validated) {
+            if (!result.passed) {
+                trace_batch_attempt(attempt, "batch-abort");
+                goto abort;
+            }
+            skip_local_validation = true;
+        }
+    }
+#else
+    bool skip_local_validation = false;
+#endif
+
+    state_ = s_committing;
+
+    writeset[0] = tset_size_;
+
+    //phase1
     for (unsigned tidx = 0; tidx != tset_size_; ++tidx) {
         it = (tidx % tset_chunk ? it + 1 : tset_[tidx / tset_chunk]);
         bool isRemote = it->owner()->get_is_remote();
@@ -424,7 +705,7 @@ bool Transaction::try_commit(bool no_paxos) {
         }
     }
 
-    int ret = TThread::sclient->remoteBatchLock(remote_table_id_batch, key_batch, value_batch);
+    ret = TThread::sclient->remoteBatchLock(remote_table_id_batch, key_batch, value_batch);
     if (ret > 0) {
         goto abort;
     }
@@ -506,15 +787,17 @@ bool Transaction::try_commit(bool no_paxos) {
     }
 
     //phase2
-    for (unsigned tidx = 0; tidx != tset_size_; ++tidx) {
-        it = (tidx % tset_chunk ? it + 1 : tset_[tidx / tset_chunk]);
-        bool isRemote = it->owner()->get_is_remote();
-        if (!isRemote && it->has_read()) {
-            TXP_INCREMENT(txp_total_check_read);
-            if (!it->owner()->check(*it, *this) // this is just a version check
-                && (!may_duplicate_items_ || !preceding_duplicate_read(it))) {
-                mark_abort_because(it, "commit check");
-                goto abort;
+    if (!skip_local_validation) {
+        for (unsigned tidx = 0; tidx != tset_size_; ++tidx) {
+            it = (tidx % tset_chunk ? it + 1 : tset_[tidx / tset_chunk]);
+            bool isRemote = it->owner()->get_is_remote();
+            if (!isRemote && it->has_read()) {
+                TXP_INCREMENT(txp_total_check_read);
+                if (!it->owner()->check(*it, *this) // this is just a version check
+                    && (!may_duplicate_items_ || !preceding_duplicate_read(it))) {
+                    mark_abort_because(it, "commit check");
+                    goto abort;
+                }
             }
         }
     }
@@ -615,6 +898,25 @@ abort:
     }
     return false;
 }
+
+#ifdef ENABLE_BATCH_VALIDATION
+void PrintStoBatchValidationStats(std::ostream& os) {
+    auto& stats = sto_batch_stats();
+    os << "--- sto batch validation stats ---" << std::endl;
+    os << "  enabled                : " << (stats.enabled ? "true" : "false") << std::endl;
+    os << "  batch_size             : " << stats.batch_size << std::endl;
+    os << "  max_wait_us            : " << stats.max_wait_us << std::endl;
+    os << "  batches_run            : " << stats.num_batches.load() << std::endl;
+    os << "  txns_in_batches        : " << stats.num_txns_in_batches.load() << std::endl;
+    os << "  batch_committed_txns   : " << stats.num_batch_committed.load() << std::endl;
+    os << "  batch_aborted_txns     : " << stats.num_batch_aborted.load() << std::endl;
+    os << "  commit_attempts        : " << stats.commit_attempts.load() << std::endl;
+    os << "  batch_requests         : " << stats.batch_requests.load() << std::endl;
+    os << "  batches_used           : " << stats.batches_used.load() << std::endl;
+}
+#else
+void PrintStoBatchValidationStats(std::ostream&) {}
+#endif
 
 // serialize transactions into log and then sent it out via Paxos
 inline void Transaction::serialize_util(unsigned nwriteset, bool on_remote, int max_bytes_size, int batch_size, uint32_t timestamp) const {

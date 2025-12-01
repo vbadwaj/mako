@@ -1,0 +1,17 @@
+{
+  "core_count": 7,
+  "duration_seconds": 30,
+  "actual_duration": 37.125814428,
+  "cpu_frequency_khz": "unknown",
+  "throughput": {
+    "txns_per_second": 345545,
+    "committed": 10464726,
+    "aborted": 2078
+  },
+  "configuration": {
+    "batch_validation": false,
+    "workload": "tpcc",
+    "scale_factor": 7
+  },
+  "output_file": "results/baseline_performance/baseline_7cores.log"
+}
