@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <mako.hh>
 
 using namespace std;
@@ -153,6 +154,14 @@ main(int argc, char **argv)
   auto& benchConfig = BenchmarkConfig::getInstance();
   // Parse command line arguments
   parse_command_line_args(argc, argv, is_micro, is_replicated, site_name, paxos_config_file, local_shards_str);
+
+  // Optional override: allow MAKO_SCALE_FACTOR to decouple warehouses-per-shard from thread count
+  if (const char* scale_env = std::getenv("MAKO_SCALE_FACTOR")) {
+    double scale_override = std::strtod(scale_env, nullptr);
+    if (scale_override > 0) {
+      benchConfig.setScaleFactor(scale_override);
+    }
+  }
 
   // Handle new configuration format if site name is provided
   if (!site_name.empty() && benchConfig.getConfig() != nullptr) {

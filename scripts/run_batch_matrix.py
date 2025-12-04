@@ -83,6 +83,7 @@ def run_dbtest(run: RunSpec, args: argparse.Namespace) -> None:
     env.update(
         {
             "OMP_NUM_THREADS": str(args.validation_threads),
+            "MAKO_BATCH_VALIDATION_THREADS": str(args.validation_threads),
             "MAKO_ENABLE_BATCH_VALIDATION": "0",
             "BATCH_VALIDATION": "0",
             "MAKO_BATCH_VALIDATION_SIZE": "0",

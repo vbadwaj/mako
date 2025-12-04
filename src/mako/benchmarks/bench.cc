@@ -18,6 +18,7 @@
 #include "../allocator.h"
 #ifdef ENABLE_BATCH_VALIDATION
 #include "../txn_occ_batch_validation.h"
+#include "../batch_validation_stats.h"
 #endif
 #include "sto/Transaction.hh"
 #include "lib/configuration.h"

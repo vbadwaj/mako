@@ -2,6 +2,7 @@
 #include <typeinfo>
 #include <atomic>
 #include <array>
+#include <cstdint>
 #include <chrono>
 #include <cctype>
 #include <condition_variable>
@@ -15,6 +16,10 @@
 #include "lib/common.h"
 #include "benchmarks/benchmark_config.h"
 #include "batch_validation_stats.h"
+
+#if defined(ENABLE_OPENMP)
+#include <omp.h>
+#endif
 
 #ifndef MAX
 #define MAX(a,b) ((a)>(b)?(a):(b))
@@ -36,10 +41,17 @@ struct StoBatchValidationStats {
     std::atomic<uint64_t> num_txns_in_batches{0};
     std::atomic<uint64_t> num_batch_committed{0};
     std::atomic<uint64_t> num_batch_aborted{0};
+    std::atomic<uint64_t> total_trigger_wait_us{0};
+    std::atomic<uint64_t> total_collection_wait_us{0};
+    std::atomic<uint64_t> total_validation_us{0};
+    std::atomic<uint64_t> flush_due_to_full{0};
+    std::atomic<uint64_t> flush_due_to_timeout{0};
+    std::atomic<uint64_t> max_batch_size{0};
     std::atomic<uint64_t> env_logs{0};
     bool enabled{false};
     size_t batch_size{32};
     size_t max_wait_us{1000};
+    size_t validation_threads{0};
 
     void log_env_once(const char* env_value, const char* legacy_value) {
         auto logged = env_logs.fetch_add(1);
@@ -51,6 +63,7 @@ struct StoBatchValidationStats {
                       << " enabled=" << (enabled ? "true" : "false")
                       << " batch_size=" << batch_size
                       << " max_wait_us=" << max_wait_us
+                      << " validation_threads=" << validation_threads
                       << std::endl;
         }
     }
@@ -77,15 +90,17 @@ void trace_batch_attempt(uint64_t attempt, const char* reason) {
 
 class StoBatchValidator {
 public:
+    using Clock = std::chrono::steady_clock;
     struct Result {
         bool validated{false};
         bool passed{false};
     };
 
-    void Configure(size_t batch_size, size_t max_wait_us) {
+    void Configure(size_t batch_size, size_t max_wait_us, size_t validation_threads) {
         std::lock_guard<std::mutex> lock(mutex_);
         batch_size_ = batch_size;
         max_wait_us_ = max_wait_us;
+        validation_threads_ = validation_threads;
         enabled_ = true;
         pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
     }
@@ -102,7 +117,9 @@ public:
         std::shared_ptr<ValidationBatch> batch;
         size_t position = 0;
         bool trigger_validation = false;
-        auto wait_start = std::chrono::high_resolution_clock::now();
+        auto wait_start = Clock::now();
+        auto trigger_time = Clock::time_point{};
+        auto trigger_reason = ValidationBatch::FlushReason::kUnknown;
 
         {
             std::unique_lock<std::mutex> lock(mutex_);
@@ -112,13 +129,19 @@ public:
             batch = pending_batch_;
             position = batch->txns.size();
             batch->txns.push_back(txn);
+            if (batch->txns.size() == 1) {
+                batch->mark_opened_if_needed();
+            }
 
             while (batch.get() == pending_batch_.get() &&
                    batch->txns.size() < batch_size_) {
                 auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
-                    std::chrono::high_resolution_clock::now() - wait_start).count();
+                    Clock::now() - wait_start).count();
                 if (elapsed >= static_cast<long long>(max_wait_us_)) {
                     trigger_validation = true;
+                    trigger_reason = ValidationBatch::FlushReason::kTimeout;
+                    batch->mark_sealed(trigger_reason);
+                    trigger_time = Clock::now();
                     pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
                     batch_cv_.notify_all();
                     break;
@@ -131,15 +154,24 @@ public:
                                    });
             }
 
-            if (batch.get() == pending_batch_.get() &&
+            if (!trigger_validation &&
+                batch.get() == pending_batch_.get() &&
                 batch->txns.size() >= batch_size_) {
                 trigger_validation = true;
+                trigger_reason = ValidationBatch::FlushReason::kFull;
+                batch->mark_sealed(trigger_reason);
+                trigger_time = Clock::now();
                 pending_batch_ = std::make_shared<ValidationBatch>(batch_size_);
                 batch_cv_.notify_all();
             }
         }
 
         if (trigger_validation) {
+            if (trigger_time.time_since_epoch().count() == 0) {
+                trigger_time = Clock::now();
+            }
+            auto trigger_wait_us = DurationMicros(wait_start, trigger_time);
+            RecordFlushTriggerStats(trigger_reason, trigger_wait_us);
             ValidateBatch(batch);
         }
 
@@ -167,9 +199,29 @@ public:
 
 private:
     struct ValidationBatch {
+        enum class FlushReason : uint8_t {
+            kUnknown = 0,
+            kFull,
+            kTimeout,
+        };
+
         explicit ValidationBatch(size_t capacity)
-            : validation_complete(false) {
+            : validation_complete(false),
+              flush_reason(FlushReason::kUnknown) {
             txns.reserve(capacity);
+        }
+
+        void mark_opened_if_needed() {
+            if (opened_at.time_since_epoch().count() == 0) {
+                opened_at = Clock::now();
+            }
+        }
+
+        void mark_sealed(FlushReason reason) {
+            if (sealed_at.time_since_epoch().count() == 0) {
+                sealed_at = Clock::now();
+            }
+            flush_reason = reason;
         }
 
         std::vector<Transaction*> txns;
@@ -177,6 +229,9 @@ private:
         std::atomic<bool> validation_complete;
         std::mutex mutex;
         std::condition_variable cv;
+        Clock::time_point opened_at{};
+        Clock::time_point sealed_at{};
+        FlushReason flush_reason;
     };
 
     bool ValidateTransaction(Transaction* txn) const {
@@ -209,11 +264,34 @@ private:
             return;
         }
 
+        if (batch->sealed_at.time_since_epoch().count() == 0) {
+            batch->mark_sealed(batch->flush_reason);
+        }
         batch->results.assign(total, false);
 
+        const auto validation_start = Clock::now();
+
+#if defined(ENABLE_OPENMP)
+        if (validation_threads_ > 0) {
+#pragma omp parallel for num_threads(validation_threads_)
+            for (int64_t i = 0; i < static_cast<int64_t>(total); ++i) {
+                const size_t idx = static_cast<size_t>(i);
+                batch->results[idx] = ValidateTransaction(batch->txns[idx]);
+            }
+        } else {
+#pragma omp parallel for
+            for (int64_t i = 0; i < static_cast<int64_t>(total); ++i) {
+                const size_t idx = static_cast<size_t>(i);
+                batch->results[idx] = ValidateTransaction(batch->txns[idx]);
+            }
+        }
+#else
         for (size_t i = 0; i < total; ++i) {
             batch->results[i] = ValidateTransaction(batch->txns[i]);
         }
+#endif
+
+        const auto validation_end = Clock::now();
 
         size_t passed = 0;
         for (bool ok : batch->results) {
@@ -235,6 +313,21 @@ private:
         sto_stats.num_batch_committed.fetch_add(passed, std::memory_order_relaxed);
         sto_stats.num_batch_aborted.fetch_add(aborted, std::memory_order_relaxed);
         sto_stats.batches_used.fetch_add(1, std::memory_order_relaxed);
+        const auto sealed_ts = batch->sealed_at.time_since_epoch().count() == 0
+                                   ? validation_start
+                                   : batch->sealed_at;
+        const auto opened_ts = batch->opened_at.time_since_epoch().count() == 0
+                                   ? sealed_ts
+                                   : batch->opened_at;
+        const auto collection_us = DurationMicros(opened_ts, sealed_ts);
+        if (collection_us > 0) {
+            sto_stats.total_collection_wait_us.fetch_add(collection_us, std::memory_order_relaxed);
+        }
+        const auto validation_us = DurationMicros(validation_start, validation_end);
+        if (validation_us > 0) {
+            sto_stats.total_validation_us.fetch_add(validation_us, std::memory_order_relaxed);
+        }
+        UpdateMaxBatchSize(total);
 
         {
             std::lock_guard<std::mutex> guard(batch->mutex);
@@ -243,8 +336,50 @@ private:
         batch->cv.notify_all();
     }
 
+    static uint64_t DurationMicros(const Clock::time_point& start,
+                                   const Clock::time_point& end) {
+        if (start.time_since_epoch().count() == 0 ||
+            end.time_since_epoch().count() == 0 ||
+            end <= start) {
+            return 0;
+        }
+        return static_cast<uint64_t>(
+            std::chrono::duration_cast<std::chrono::microseconds>(end - start).count());
+    }
+
+    void RecordFlushTriggerStats(ValidationBatch::FlushReason reason,
+                                 uint64_t trigger_wait_us) const {
+        auto& stats = sto_batch_stats();
+        if (trigger_wait_us > 0) {
+            stats.total_trigger_wait_us.fetch_add(trigger_wait_us, std::memory_order_relaxed);
+        }
+        switch (reason) {
+            case ValidationBatch::FlushReason::kFull:
+                stats.flush_due_to_full.fetch_add(1, std::memory_order_relaxed);
+                break;
+            case ValidationBatch::FlushReason::kTimeout:
+                stats.flush_due_to_timeout.fetch_add(1, std::memory_order_relaxed);
+                break;
+            default:
+                break;
+        }
+    }
+
+    static void UpdateMaxBatchSize(uint64_t batch_size) {
+        auto& stats = sto_batch_stats();
+        uint64_t current = stats.max_batch_size.load(std::memory_order_relaxed);
+        while (current < batch_size &&
+               !stats.max_batch_size.compare_exchange_weak(
+                   current,
+                   batch_size,
+                   std::memory_order_relaxed,
+                   std::memory_order_relaxed)) {
+        }
+    }
+
     size_t batch_size_{32};
     size_t max_wait_us_{1000};
+    size_t validation_threads_{0};
     bool enabled_{false};
     std::mutex mutex_;
     std::condition_variable batch_cv_;
@@ -269,9 +404,14 @@ void configure_batch_validation_from_env() {
         if (const char* wait_env = std::getenv("MAKO_BATCH_VALIDATION_MAX_WAIT_US")) {
             stats.max_wait_us = std::strtoul(wait_env, nullptr, 10);
         }
+        if (const char* thread_env = std::getenv("MAKO_BATCH_VALIDATION_THREADS")) {
+            stats.validation_threads = std::strtoul(thread_env, nullptr, 10);
+        }
         stats.log_env_once(env_value, legacy_env_value);
         if (stats.enabled) {
-            GetStoBatchValidator().Configure(stats.batch_size, stats.max_wait_us);
+            GetStoBatchValidator().Configure(stats.batch_size,
+                                             stats.max_wait_us,
+                                             stats.validation_threads);
         }
     });
 }
@@ -902,10 +1042,20 @@ abort:
 #ifdef ENABLE_BATCH_VALIDATION
 void PrintStoBatchValidationStats(std::ostream& os) {
     auto& stats = sto_batch_stats();
+    const uint64_t batches = stats.num_batches.load();
+    const uint64_t flushes =
+        stats.flush_due_to_full.load() + stats.flush_due_to_timeout.load();
+    const uint64_t avg_collection =
+        batches ? stats.total_collection_wait_us.load() / batches : 0;
+    const uint64_t avg_validation =
+        batches ? stats.total_validation_us.load() / batches : 0;
+    const uint64_t avg_trigger_wait =
+        flushes ? stats.total_trigger_wait_us.load() / flushes : 0;
     os << "--- sto batch validation stats ---" << std::endl;
     os << "  enabled                : " << (stats.enabled ? "true" : "false") << std::endl;
     os << "  batch_size             : " << stats.batch_size << std::endl;
     os << "  max_wait_us            : " << stats.max_wait_us << std::endl;
+    os << "  validation_threads     : " << stats.validation_threads << std::endl;
     os << "  batches_run            : " << stats.num_batches.load() << std::endl;
     os << "  txns_in_batches        : " << stats.num_txns_in_batches.load() << std::endl;
     os << "  batch_committed_txns   : " << stats.num_batch_committed.load() << std::endl;
@@ -913,6 +1063,12 @@ void PrintStoBatchValidationStats(std::ostream& os) {
     os << "  commit_attempts        : " << stats.commit_attempts.load() << std::endl;
     os << "  batch_requests         : " << stats.batch_requests.load() << std::endl;
     os << "  batches_used           : " << stats.batches_used.load() << std::endl;
+    os << "  avg_collection_wait_us : " << avg_collection << std::endl;
+    os << "  avg_validation_time_us : " << avg_validation << std::endl;
+    os << "  avg_trigger_wait_us    : " << avg_trigger_wait << std::endl;
+    os << "  flush_full_count       : " << stats.flush_due_to_full.load() << std::endl;
+    os << "  flush_timeout_count    : " << stats.flush_due_to_timeout.load() << std::endl;
+    os << "  max_batch_size_observed: " << stats.max_batch_size.load() << std::endl;
 }
 #else
 void PrintStoBatchValidationStats(std::ostream&) {}
