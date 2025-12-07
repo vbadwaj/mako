@@ -26,6 +26,15 @@ class StoBatchValidator {
  public:
   enum class Decision { kBypass, kValidated, kAborted };
 
+  // Forward declare ValidationEntry for public API
+  struct ValidationEntry {
+    Transaction* txn{nullptr};
+    Decision decision{Decision::kBypass};
+    bool done{false};
+    std::mutex mutex;
+    std::condition_variable cv;
+  };
+
   static StoBatchValidator& Instance() {
     static StoBatchValidator validator;
     return validator;
@@ -48,6 +57,11 @@ class StoBatchValidator {
       adaptive_low_watermark_ = 1;
     }
     enabled_ = true;
+    
+    // Check if pipelining is enabled
+    pipelining_enabled_ = ParsePipeliningEnv();
+    pipeline_depth_ = ParsePipelineDepthEnv();
+    
     reorder_enabled_ = ParseReorderEnv();
     reorder_options_ = {};
     reorder_options_.fvs_policy = ParsePolicyEnv();
@@ -67,12 +81,12 @@ class StoBatchValidator {
         reorder_options_.fvs_hybrid_threshold = static_cast<size_t>(v);
       }
     }
-    if (BatchValidationTraceEnabled()) {
-      std::fprintf(stderr,
-                   "[batch_validation] sto configure batch_size=%zu max_wait_us=%zu\n",
-                   batch_size_,
-                   max_wait_us_);
-    }
+    std::fprintf(stderr,
+                 "[batch_validation] sto configure batch_size=%zu max_wait_us=%zu pipelining=%s depth=%zu\n",
+                 batch_size_,
+                 max_wait_us_,
+                 pipelining_enabled_ ? "on" : "off",
+                 pipeline_depth_);
     EnsureReporterRegistered();
     if (!pending_batch_) {
       pending_batch_ = std::make_unique<ValidationBatch>(batch_size_);
@@ -104,30 +118,142 @@ class StoBatchValidator {
     pending_batch_.reset();
   }
 
+  /**
+   * Process a transaction through batch validation (blocking)
+   * If pipelining is enabled, uses non-blocking enqueue + deferred wait
+   */
   Decision Process(Transaction* txn) {
+    static std::atomic<size_t> process_count{0};
+    size_t cnt = process_count.fetch_add(1) + 1;
+    if (cnt == 1 || cnt % 50000 == 0) {
+      std::fprintf(stderr, "[BATCH_DEBUG] StoBatchValidator::Process called, count=%zu enabled=%d pipelining=%d\n", 
+                   cnt, enabled_ ? 1 : 0, pipelining_enabled_ ? 1 : 0);
+    }
     if (!enabled_ || !txn) {
       return Decision::kBypass;
     }
-    std::vector<Transaction*> txns{txn};
-    std::vector<Decision> decisions;
-    ProcessBatch(txns, decisions);
-    if (decisions.empty()) {
+    
+    if (pipelining_enabled_) {
+      // Non-blocking enqueue for pipelining
+      ValidationEntry* entry = EnqueueForValidation(txn);
+      if (!entry) {
+        return Decision::kBypass;
+      }
+      // Store in thread-local queue for later waiting
+      GetThreadLocalPendingEntries().push_back(entry);
+      // Return immediately - validation will happen in background
+      // Caller must call WaitForAllPending() before using results
+      return Decision::kValidated;  // Optimistic - will be checked in WaitForAllPending
+    } else {
+      // Blocking mode (original behavior)
+      std::vector<Transaction*> txns{txn};
+      std::vector<Decision> decisions;
+      ProcessBatch(txns, decisions);
+      if (decisions.empty()) {
+        return Decision::kBypass;
+      }
+      return decisions.front();
+    }
+  }
+
+  /**
+   * Enqueue transaction for validation without waiting (non-blocking)
+   * Returns ValidationEntry* that can be used to wait for result later
+   */
+  ValidationEntry* EnqueueForValidation(Transaction* txn) {
+    if (!enabled_ || !txn) {
+      return nullptr;
+    }
+    
+    // Create entry on heap (will be deleted by WaitForResult)
+    ValidationEntry* entry = new ValidationEntry();
+    entry->txn = txn;
+    entry->decision = Decision::kBypass;
+    entry->done = false;
+    
+    // Add to pending batch
+    {
+      std::lock_guard<std::mutex> lk(batch_mutex_);
+      if (!pending_batch_) {
+        delete entry;
+        return nullptr;
+      }
+      pending_batch_->add_entry(entry);
+      
+      static std::atomic<size_t> enqueue_count{0};
+      size_t cnt = enqueue_count.fetch_add(1) + 1;
+      if (cnt == 1 || cnt % 10000 == 0) {
+        std::fprintf(stderr, "[BATCH_DEBUG] EnqueueForValidation count=%zu batch_size=%zu\n", 
+                     cnt, pending_batch_->entries.size());
+      }
+    }
+    batch_cv_.notify_one();
+    
+    return entry;
+  }
+
+  /**
+   * Wait for a specific validation entry's result
+   * Deletes the entry after retrieving result
+   */
+  Decision WaitForResult(ValidationEntry* entry) {
+    if (!entry) {
       return Decision::kBypass;
     }
-    return decisions.front();
+    
+    std::unique_lock<std::mutex> lk(entry->mutex);
+    entry->cv.wait(lk, [entry]() { return entry->done; });
+    
+    Decision result = entry->decision;
+    lk.unlock();
+    delete entry;
+    return result;
+  }
+
+  /**
+   * Wait for all pending validations in thread-local queue
+   * Returns true if all passed, false if any aborted
+   */
+  bool WaitForAllPending() {
+    auto& pending = GetThreadLocalPendingEntries();
+    bool all_passed = true;
+    
+    for (ValidationEntry* entry : pending) {
+      if (entry) {
+        Decision result = WaitForResult(entry);
+        if (result == Decision::kAborted) {
+          all_passed = false;
+        }
+      }
+    }
+    pending.clear();
+    
+    static std::atomic<size_t> wait_count{0};
+    size_t cnt = wait_count.fetch_add(1) + 1;
+    if (cnt == 1 || cnt % 10000 == 0) {
+      std::fprintf(stderr, "[BATCH_DEBUG] WaitForAllPending count=%zu all_passed=%d\n", cnt, all_passed ? 1 : 0);
+    }
+    
+    return all_passed;
+  }
+
+  /**
+   * Get count of pending validations in thread-local queue
+   */
+  size_t GetPendingCount() const {
+    return GetThreadLocalPendingEntries().size();
+  }
+
+  /**
+   * Check if pipelining is enabled
+   */
+  bool IsPipeliningEnabled() const {
+    return pipelining_enabled_;
   }
 
   void ProcessBatch(const std::vector<Transaction*>& txns, std::vector<Decision>& decisions);
 
  private:
-  struct ValidationEntry {
-    Transaction* txn{nullptr};
-    Decision decision{Decision::kBypass};
-    bool done{false};
-    std::mutex mutex;
-    std::condition_variable cv;
-  };
-
   struct ValidationBatch {
     explicit ValidationBatch(size_t reserve) {
       entries.reserve(reserve);
@@ -165,6 +291,8 @@ class StoBatchValidator {
   ~StoBatchValidator() { Shutdown(); }
 
   bool ParseReorderEnv() const;
+  bool ParsePipeliningEnv() const;
+  size_t ParsePipelineDepthEnv() const;
   occ::FvsPolicy ParsePolicyEnv() const;
   occ::FvsAlgorithm ParseAlgoEnv() const;
   size_t ParseIdleWaitEnv() const;
@@ -175,6 +303,12 @@ class StoBatchValidator {
   void ValidateBatch(ValidationBatch& batch);
   void WorkerLoop();
   size_t DetermineWaitUs(size_t queue_depth) const;
+  
+  // Thread-local storage for pipelining
+  static std::vector<ValidationEntry*>& GetThreadLocalPendingEntries() {
+    thread_local static std::vector<ValidationEntry*> pending_entries;
+    return pending_entries;
+  }
 
   using ReorderController =
       occ::GenericTxnReorderController<Transaction,
@@ -186,10 +320,12 @@ class StoBatchValidator {
   size_t idle_wait_us_{50};
   size_t adaptive_low_watermark_{4};
   size_t reorder_min_size_{2};
+  size_t pipeline_depth_{4};  // Default pipeline depth
   bool enabled_{false};
   bool shutdown_{false};
   bool worker_running_{false};
   bool reorder_enabled_{false};
+  bool pipelining_enabled_{false};
   typename ReorderController::Options reorder_options_{};
 
   std::mutex batch_mutex_;
@@ -209,6 +345,32 @@ inline bool StoBatchValidator::ParseReorderEnv() const {
                  flag.begin(),
                  [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
   return flag == "1" || flag == "true" || flag == "on";
+}
+
+inline bool StoBatchValidator::ParsePipeliningEnv() const {
+  const char* env = std::getenv("MAKO_ENABLE_TXN_PIPELINING");
+  if (!env) {
+    return false;
+  }
+  std::string flag(env);
+  std::transform(flag.begin(),
+                 flag.end(),
+                 flag.begin(),
+                 [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+  return flag == "1" || flag == "true" || flag == "on";
+}
+
+inline size_t StoBatchValidator::ParsePipelineDepthEnv() const {
+  const char* env = std::getenv("MAKO_TXN_PIPELINE_DEPTH");
+  if (!env) {
+    return 4;  // Default pipeline depth
+  }
+  char* end = nullptr;
+  unsigned long value = std::strtoul(env, &end, 10);
+  if (end == env || value == 0) {
+    return 4;
+  }
+  return static_cast<size_t>(value);
 }
 
 inline occ::FvsPolicy StoBatchValidator::ParsePolicyEnv() const {

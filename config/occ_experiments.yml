@@ -1,6 +1,6 @@
 defaults:
-  workdir: /home/azureuser/mako-eocc
-  results_root: /home/azureuser/mako-eocc/results/occ_runs
+  workdir: /home/ubuntu/mako
+  results_root: /home/ubuntu/mako/results/occ_runs
 
 scenarios:
   - name: baseline_simple
@@ -391,6 +391,34 @@ scenarios:
       OMP_NUM_THREADS: "{threads}"
       DBTEST_EXIT_AFTER_SECS:
         fast: 5
+        full: 60
+
+  - name: dbtest_pipelining_parallel_validation_tpcc
+    description: dbtest TPCC with transaction pipelining + parallel batch validation for larger batch sizes.
+    command: "./build/dbtest -q config/mako_single_node.yml -N local_s0 -t {threads}"
+    placeholders:
+      threads:
+        fast: 2
+        full: 8
+      batch_size:
+        fast: 32
+        full: 64
+      batch_wait_us:
+        fast: 1000
+        full: 2000
+      pipeline_depth:
+        fast: 4
+        full: 4
+    env:
+      MAKO_ENABLE_BATCH_VALIDATION: "1"
+      MAKO_ENABLE_TXN_PIPELINING: "1"
+      MAKO_TXN_PIPELINE_DEPTH: "{pipeline_depth}"
+      MAKO_BATCH_VALIDATION_SIZE: "{batch_size}"
+      MAKO_BATCH_VALIDATION_MAX_WAIT_US: "{batch_wait_us}"
+      MAKO_BATCH_VALIDATION_THREADS: "8"
+      OMP_NUM_THREADS: "8"
+      DBTEST_EXIT_AFTER_SECS:
+        fast: 10
         full: 60
 
   # dbtest TPCC with all OCC optimizations enabled (batch + reorder + storage)

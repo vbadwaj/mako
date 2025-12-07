@@ -511,6 +511,7 @@ set(MAKO_SRCFILES
 set(BENCH_CXXFLAGS ${CXXFLAGS})
 set(BENCH_LDFLAGS
   ${LDFLAGS}
+  ${LZ4LDFLAGS}
   -lz
   -lrt
   -lcrypt
@@ -804,6 +805,11 @@ target_link_libraries(test_batch_validation_stress
     ${JEMALLOC_LDFLAGS}
 )
 add_dependencies(test_batch_validation_stress mako erpc rust_lib txlog)
+
+# Parallel validation micro-benchmark (standalone, minimal dependencies)
+add_executable(test_parallel_validation_micro test_parallel_validation_micro.cc)
+target_compile_options(test_parallel_validation_micro PRIVATE -O3 -std=c++17 -fopenmp)
+target_link_libraries(test_parallel_validation_micro pthread gomp)
 
 # RPC benchmark binary
 add_executable(rpcbench test/rpcbench.cc test/benchmark_service.cc)

@@ -41,7 +41,7 @@ def main():
     parser.add_argument(
         "--results-root",
         type=Path,
-        default=Path("/home/azureuser/mako-eocc/results/occ_runs"),
+        default=Path("/home/ubuntu/mako/results/occ_runs"),
         help="Root directory containing OCC experiment runs.",
     )
     parser.add_argument(

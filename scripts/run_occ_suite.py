@@ -159,7 +159,7 @@ def main():
     parser.add_argument(
         "--scenarios",
         type=Path,
-        default=Path("/home/azureuser/mako-eocc/config/occ_experiments.yml"),
+        default=Path("/home/ubuntu/mako/config/occ_experiments.yml"),
         help="Path to scenarios YAML file.",
     )
     parser.add_argument(
@@ -176,7 +176,7 @@ def main():
     parser.add_argument(
         "--results-root",
         type=Path,
-        default=Path("/home/azureuser/mako-eocc/results/occ_runs"),
+        default=Path("/home/ubuntu/mako/results/occ_runs"),
         help="Directory to store experiment outputs.",
     )
     parser.add_argument(
@@ -199,7 +199,7 @@ def main():
         suite_cfg = yaml.safe_load(f) or {}
 
     defaults = suite_cfg.get("defaults", {})
-    workdir_default = Path(defaults.get("workdir", "/home/azureuser/mako-eocc"))
+    workdir_default = Path(defaults.get("workdir", "/home/ubuntu/mako"))
     results_root = args.results_root.expanduser().resolve()
 
     timestamp = datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")

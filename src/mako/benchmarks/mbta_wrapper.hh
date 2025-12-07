@@ -1096,8 +1096,28 @@ public:
       auto decision = mako::sto::StoStorageReorderer::Instance().Process(TThread::txn);
       should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
     } else if (batch_validation_enabled_) {
-      auto decision = mako::sto::StoBatchValidator::Instance().Process(TThread::txn);
-      should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
+      auto& validator = mako::sto::StoBatchValidator::Instance();
+      if (validator.IsPipeliningEnabled()) {
+        // Pipelining mode: enqueue and check if we need to wait
+        auto decision = validator.Process(TThread::txn);  // Enqueues, doesn't wait
+        
+        // Check if pipeline is full - if so, wait for all pending
+        size_t pending = validator.GetPendingCount();
+        if (pending >= 4) {  // Pipeline depth threshold
+          bool all_passed = validator.WaitForAllPending();
+          if (!all_passed) {
+            // At least one transaction failed - check if it was ours
+            // For now, abort conservatively
+            should_abort = true;
+          }
+        }
+        // If pipeline not full, we return optimistically
+        // The wait will happen on a future commit when pipeline fills
+      } else {
+        // Non-pipelining mode: blocking wait
+        auto decision = validator.Process(TThread::txn);
+        should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
+      }
     }
     if (should_abort) {
       RecordTxnCompletion(TThread::txn, false);
@@ -1121,8 +1141,24 @@ public:
       auto decision = mako::sto::StoStorageReorderer::Instance().Process(TThread::txn);
       should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
     } else if (batch_validation_enabled_) {
-      auto decision = mako::sto::StoBatchValidator::Instance().Process(TThread::txn);
-      should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
+      auto& validator = mako::sto::StoBatchValidator::Instance();
+      if (validator.IsPipeliningEnabled()) {
+        // Pipelining mode: enqueue and check if we need to wait
+        auto decision = validator.Process(TThread::txn);  // Enqueues, doesn't wait
+        
+        // Check if pipeline is full - if so, wait for all pending
+        size_t pending = validator.GetPendingCount();
+        if (pending >= 4) {  // Pipeline depth threshold
+          bool all_passed = validator.WaitForAllPending();
+          if (!all_passed) {
+            should_abort = true;
+          }
+        }
+      } else {
+        // Non-pipelining mode: blocking wait
+        auto decision = validator.Process(TThread::txn);
+        should_abort = (decision == mako::sto::StoBatchValidator::Decision::kAborted);
+      }
     }
     if (should_abort) {
       RecordTxnCompletion(TThread::txn, false);
@@ -1301,8 +1337,11 @@ private:
     }
     const size_t thread_budget = std::max<size_t>(
         1, static_cast<size_t>(BenchmarkConfig::getInstance().getNthreads()));
+    // Batch size should be independent of thread count - OpenMP can handle
+    // batches larger than thread count by distributing work across threads
+    constexpr size_t kMaxBatchSize = 1024;  // Safety cap for memory
     const size_t effective_batch =
-        std::max<size_t>(1, std::min(requested_batch, thread_budget));
+        std::max<size_t>(1, std::min(requested_batch, kMaxBatchSize));
     if (const char* trace_env = std::getenv("MAKO_BATCH_VALIDATION_TRACE")) {
       std::fprintf(stderr,
                    "[batch_validation] trace env detected=\"%s\" requested_batch=%zu "
@@ -1313,12 +1352,13 @@ private:
                    max_wait_us,
                    thread_budget);
     }
-    mako::sto::StoBatchValidator::Instance().Configure(effective_batch, max_wait_us);
 
+    // Check if storage reordering is enabled (uses StoStorageReorderer instead of StoBatchValidator)
     storage_reorder_enabled_ = false;
     const char* storage_env = std::getenv("MAKO_ENABLE_STORAGE_REORDER");
     if (storage_env && (std::string(storage_env) == "1" || std::string(storage_env) == "true" ||
                         std::string(storage_env) == "TRUE")) {
+      // Storage reordering is enabled - use StoStorageReorderer (which internally uses StoBatchValidator)
       size_t reorder_batch = effective_batch;
       size_t reorder_wait_us = max_wait_us;
       if (const char* reorder_batch_env = std::getenv("MAKO_STORAGE_REORDER_SIZE")) {
@@ -1327,9 +1367,19 @@ private:
       if (const char* reorder_wait_env = std::getenv("MAKO_STORAGE_REORDER_MAX_WAIT_US")) {
         reorder_wait_us = std::strtoul(reorder_wait_env, nullptr, 10);
       }
+      std::fprintf(stderr,
+                   "[BATCH_DEBUG] Configuring StoStorageReorderer batch_size=%zu max_wait_us=%zu\n",
+                   reorder_batch, reorder_wait_us);
       mako::sto::StoStorageReorderer::Instance().Configure(reorder_batch, reorder_wait_us);
       storage_reorder_enabled_ = true;
+      // Don't configure StoBatchValidator separately - StoStorageReorderer handles it
     } else {
+      // No storage reordering - use StoBatchValidator directly for batch validation
+      std::fprintf(stderr,
+                   "[BATCH_DEBUG] Configuring StoBatchValidator batch_size=%zu max_wait_us=%zu\n",
+                   effective_batch, max_wait_us);
+      mako::sto::StoBatchValidator::Instance().Configure(effective_batch, max_wait_us);
+      // Shutdown storage reorderer since we're not using it
       mako::sto::StoStorageReorderer::Instance().Shutdown();
     }
   }

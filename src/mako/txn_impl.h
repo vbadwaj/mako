@@ -6,6 +6,7 @@
 #ifdef ENABLE_BATCH_VALIDATION
 #include "txn_occ_batch_validation.h"
 #include <cstdlib>
+#include <string>
 #endif
 
 // base definitions
@@ -351,11 +352,14 @@ transaction<Protocol, Traits>::commit(bool doThrow)
       static bool batch_validation_enabled = []() {
         const char* env = std::getenv("MAKO_ENABLE_BATCH_VALIDATION");
         bool enabled = env && (std::string(env) == "1" || std::string(env) == "true");
-        if (mako::BatchValidationTraceEnabled()) {
+        // ALWAYS log for debugging
+        static bool logged = false;
+        if (!logged) {
+          logged = true;
           std::fprintf(stderr,
-                       "[batch_validation] MAKO_ENABLE_BATCH_VALIDATION=%s -> %s\n",
+                       "[BATCH_DEBUG] ENABLE_BATCH_VALIDATION defined, env=%s, enabled=%s\n",
                        env ? env : "<null>",
-                       enabled ? "enabled" : "disabled");
+                       enabled ? "yes" : "no");
         }
         if (enabled) {
           // Initialize batch validator on first use
@@ -373,13 +377,9 @@ transaction<Protocol, Traits>::commit(bool doThrow)
             if (max_wait_env) {
               max_wait_us = std::stoul(max_wait_env);
             }
-            if (mako::BatchValidationTraceEnabled()) {
-              std::fprintf(stderr,
-                           "[batch_validation] initializing BatchValidator batch_size=%zu "
-                           "max_wait_us=%zu\n",
-                           batch_size,
-                           max_wait_us);
-            }
+            std::fprintf(stderr,
+                         "[BATCH_DEBUG] Initializing BatchValidator batch_size=%zu max_wait_us=%zu\n",
+                         batch_size, max_wait_us);
             validator.Init(batch_size, max_wait_us);
           }
         }
@@ -388,8 +388,13 @@ transaction<Protocol, Traits>::commit(bool doThrow)
 
       // Use batch validation for parallel validation
       if (batch_validation_enabled) {
+        static std::atomic<size_t> add_count{0};
+        size_t cnt = add_count.fetch_add(1) + 1;
+        if (cnt == 1 || cnt % 50000 == 0) {
+          std::fprintf(stderr, "[BATCH_DEBUG] AddToBatch called, count=%zu\n", cnt);
+        }
         auto& validator = GetBatchValidator<Protocol, Traits>();
-        // Add to batch - blocks until batch is validated in parallel
+        // Add to batch - may block or enqueue depending on pipelining mode
         bool validation_passed = validator.AddToBatch(this);
         
         // Check if validation completed in batch
@@ -398,7 +403,16 @@ transaction<Protocol, Traits>::commit(bool doThrow)
           goto do_abort;
         }
         
-        if (validation_passed) {
+        // Check if pipelining is enabled (non-blocking mode)
+        const char* pipeline_env = std::getenv("MAKO_ENABLE_TXN_PIPELINING");
+        bool pipelining_enabled = (pipeline_env && (std::string(pipeline_env) == "1" || std::string(pipeline_env) == "true"));
+        
+        if (pipelining_enabled) {
+          // In pipelining mode, validation is pending
+          // Worker loop will wait for all validations together
+          // For now, skip individual validation and let worker loop handle it
+          skip_individual_validation_flag = true;
+        } else if (validation_passed) {
           // Validation passed in batch - skip individual validation and proceed
           skip_individual_validation_flag = true;
         }

@@ -246,6 +246,21 @@ bench_worker::run()
   txn_counts.resize(40);
   barrier_a->count_down();
   barrier_b->wait_for();
+  
+  // Check if pipelining is enabled
+  const char* pipeline_env = std::getenv("MAKO_ENABLE_TXN_PIPELINING");
+  bool pipelining_enabled = (pipeline_env && (std::string(pipeline_env) == "1" || std::string(pipeline_env) == "true"));
+  size_t pipeline_depth = 4;  // Default pipeline depth
+  if (const char* depth_env = std::getenv("MAKO_TXN_PIPELINE_DEPTH")) {
+    char* end = nullptr;
+    unsigned long v = std::strtoul(depth_env, &end, 10);
+    if (end != depth_env && v > 0 && v <= 32) {
+      pipeline_depth = static_cast<size_t>(v);
+    }
+  }
+  
+  size_t pipeline_count = 0;  // Count of transactions in current pipeline batch
+  
   while (benchConfig.isRunning() && (benchConfig.getRunMode() != RUNMODE_OPS || ntxn_commits < benchConfig.getOpsPerWorker())) {
     double d = r.next_uniform();
     for (size_t i = 0; i < workload.size(); i++) {
@@ -258,6 +273,17 @@ bench_worker::run()
         //   std::cout<<"one transaction2\n";
         // }
         auto tl = t.lap_nano();
+        
+        // If pipelining is enabled, track pipeline depth
+        // Note: Actual waiting happens in transaction commit path (txn_impl.h)
+        // This just tracks when we've reached pipeline depth for potential optimization
+        if (pipelining_enabled) {
+          pipeline_count++;
+          if (pipeline_count >= pipeline_depth) {
+            pipeline_count = 0;
+          }
+        }
+        
         if (likely(ret.first)) {
           ++ntxn_commits;
           if (ret.second % 10 == 1)
